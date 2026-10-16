@@ -1,0 +1,24 @@
+MIDNIGHT STUDIOS — VERSION 0.6.1
+
+Extract this ZIP once into a new folder. It contains one complete project.
+
+UPGRADING FROM v0.6.0
+Reuse your existing Supabase project and admin account. Copy your .env.local into this folder, run npm install, then npm run cms:pull to load your saved content. No database migration is needed.
+
+AUTOMATIC PUBLISHING
+Follow CONNECT-PUBLISHING.md for the private GitHub + Cloudflare Pages connection. The Media page is removed; image uploads remain inside the game and journal editors.
+
+DASHBOARD
+Open START-DASHBOARD.md for the Supabase connection and admin setup.
+In VS Code: npm install, then npm run dev.
+Open http://localhost:3000/admin.
+No customer secrets are included. The cloud connection still needs your local configuration.
+
+EXISTING WEBSITE PREVIEW
+Double-click Start-Preview.bat, then open http://localhost:3061.
+Requires Node.js 22.13+. Keep the preview window open.
+This static preview has no Supabase configuration; use npm run dev for dashboard setup.
+
+All original public images are unchanged. Assets are stored once in public; the preview launcher copies them to out/assets on first use.
+Full source, design assets, animation pipeline, new dashboard and database setup are included.
+No GitHub push, domain change, hosting registration or paid subscription was performed.

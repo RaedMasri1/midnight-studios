@@ -1,0 +1,23 @@
+{
+  "version": "0.5.1",
+  "productionBuild": "passed",
+  "typeScript": "passed",
+  "projectChecks": "passed",
+  "heroTimeline": "one continuous timeline for motion and staggered fades",
+  "heroViewportAndStageCombinations": 21,
+  "heroSamplesPerCombination": 401,
+  "heroReverseScrolling": "analytical regression passed",
+  "heroStickyReleaseContinuity": "analytical regression passed",
+  "heroStageSeparation": "analytical geometry passed",
+  "allOtherChapterPosesUnchanged": true,
+  "contentJsonRecordsUnchanged": true,
+  "existingPublicFilesPreserved": 291,
+  "existingArtworkAndPipelineFilesPreserved": 25,
+  "allRouteJsGzipBytes": 325700,
+  "homeEntryJsGzipBytes": 209625,
+  "publishedContentRoutes": 11,
+  "sitemapEntries": 11,
+  "browserPlayback": "not visually verified",
+  "devicePerformance": "not measured",
+  "websiteDeployed": false
+}

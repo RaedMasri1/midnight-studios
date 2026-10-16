@@ -1,0 +1,20 @@
+.footer{min-height:0}
+.inner{position:relative;padding-top:34px}
+.contact{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.eyebrow{font-size:.62rem;line-height:1.5;letter-spacing:.14em;text-transform:uppercase;color:#b3b6c1;margin-bottom:9px}
+.contact h2{font-size:clamp(2.2rem,3.7vw,3.5rem);line-height:1.05;letter-spacing:-.055em;font-weight:500}
+.contact>a{display:inline-flex;gap:15px;align-items:center;font-size:clamp(.8rem,1.2vw,1.03rem);line-height:1.4;padding-block:6px;min-height:42px;overflow-wrap:anywhere}
+.contact>a:hover{color:#d3d9ef}
+.signature{position:relative;z-index:2;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:20px;align-items:center;margin:36px 0 24px;text-shadow:0 2px 24px #000}
+.logo{width:48px}.logo img{width:100%;height:auto}
+.name{font-size:clamp(2rem,5.5vw,6.3rem);line-height:1.1;font-weight:500;letter-spacing:-.06em;white-space:nowrap}
+.slogan{font-size:clamp(.7rem,1.25vw,1.15rem);line-height:1.45;letter-spacing:-.015em;min-width:0;white-space:nowrap}
+.bottom{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;border-top:1px solid #ffffff2b;padding:12px 0 16px;color:#bdc0ca;font-size:.66rem;line-height:1.5;min-height:56px}
+.footer [data-moon]{height:210px;bottom:0;opacity:.65}
+.footer[data-motion-ready=true] .contact{opacity:var(--footer-opacity,1);transform:translateY(var(--footer-copy-y,0px))}
+.footer[data-motion-ready=true] .signature{transform:translateY(var(--footer-name-y,0px))}
+@media(max-width:1100px){.signature{grid-template-columns:40px minmax(0,1fr) auto;gap:16px}.logo{width:40px}.slogan{min-width:90px}.contact>a{font-size:.86rem}}
+@media(max-width:700px){.inner{padding-top:28px}.contact{display:block}.eyebrow{font-size:.55rem;margin-bottom:8px}.contact h2{font-size:2.3rem}.contact>a{font-size:clamp(.76rem,3.4vw,.95rem);gap:12px;margin-top:8px}.signature{grid-template-columns:30px minmax(0,1fr) auto;gap:10px;margin:27px 0 20px}.logo{width:30px}.name{font-size:clamp(1.05rem,5.25vw,2rem)}.slogan{font-size:.64rem;min-width:0;line-height:1.5}.bottom{font-size:.59rem;gap:12px;padding:10px 0 13px}.footer [data-moon]{height:190px}.bottom button{font-size:.59rem;padding-inline:8px}}
+@media(prefers-reduced-motion:reduce){.footer .contact,.footer .signature{opacity:1!important;transform:none!important}}
+
+@media(max-width:360px){.signature{grid-template-columns:24px minmax(0,1fr) auto;gap:8px}.logo{width:24px}.slogan{font-size:.6rem}}

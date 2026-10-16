@@ -1,0 +1,4 @@
+project_id = "midnight-studios"
+
+[functions.studio-jobs]
+verify_jwt = false

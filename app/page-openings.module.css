@@ -1,0 +1,73 @@
+.eyebrow{font-size:.68rem;line-height:1.5;text-transform:uppercase;letter-spacing:.13em;margin-bottom:20px;color:#6e6e7b}
+.collection{background:#fff;color:#111116;color-scheme:light;min-height:100svh;display:grid;align-items:center;padding:118px 0 42px}
+.collectionLayout{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.15fr);gap:6%;align-items:center;min-height:0}
+.collectionCopy h1,.contactCopy h1{font-size:clamp(3rem,5.5vw,6rem);font-weight:500;line-height:1.04;letter-spacing:-.06em}
+.collectionCopy h1{font-size:clamp(2.65rem,min(4.8vw,7.4svh),5.5rem)}
+.collectionCopy>p:not(.eyebrow){max-width:34ch;font-size:1.06rem;line-height:1.6;color:#62626d;margin:24px 0}
+.collectionArt{position:relative;aspect-ratio:1.12;isolation:isolate;width:min(100%,calc((100svh - 184px) * 1.12),680px);justify-self:end;margin:0}
+.cover{display:block;position:absolute;width:42%;aspect-ratio:1.35;border-radius:18px;overflow:hidden;background:#eeeef4;border:5px solid #fff;box-shadow:0 12px 35px #12152d1f;transition:translate .3s,box-shadow .3s}
+.cover img{width:100%;height:100%;object-fit:cover}
+.cover>span{position:absolute;bottom:0;left:0;right:0;padding:18px 10px 9px;background:linear-gradient(0deg,#080811bc,transparent);color:#fff;font-size:.7rem;line-height:1.4}
+.cover[data-cover-index="0"]{left:3%;top:23%;transform:rotate(-10deg);z-index:3}
+.cover[data-cover-index="1"]{left:27%;top:0;transform:rotate(5deg);z-index:1}
+.cover[data-cover-index="2"]{right:3%;top:28%;transform:rotate(12deg);z-index:2}
+.cover[data-cover-index="3"]{right:6%;top:59%;transform:rotate(-4deg);z-index:4}
+.cover[data-cover-index="4"]{left:6%;top:58%;transform:rotate(5deg);z-index:5}
+.cover:focus-visible{outline:3px solid #28283f;outline-offset:5px;z-index:10}
+@media(hover:hover) and (pointer:fine){.cover:hover{translate:0 -6px;box-shadow:0 20px 40px #12152d29;z-index:10}}
+.contact{background:#09090d;color:#fff;padding:130px 0 76px;isolation:isolate}
+.contactLayout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:8%;align-items:center;min-height:480px}
+.contact .eyebrow{color:#a9a9bb}
+.contactCopy>p:not(.eyebrow){color:#c1c1cf;max-width:34ch;font-size:1.07rem;line-height:1.65;margin-top:26px}
+.contactActions{display:flex;align-items:flex-start;flex-direction:column;gap:18px;margin-top:30px}
+.contactActions>a:last-child{font-size:.85rem;line-height:1.5;color:#c9c9d5;border-bottom:1px solid #ffffff55;padding-block:5px;overflow-wrap:anywhere}
+.mailArt{position:relative;display:grid;place-items:center;aspect-ratio:1;max-height:500px;isolation:isolate}
+.mailArt:before{content:"";position:absolute;inset:10%;border-radius:50%;background:radial-gradient(ellipse,#ffffff0b,transparent 68%);z-index:-1}
+.mailOrbit{position:absolute;inset:0;border:1px solid #ffffff0c;border-radius:50%}
+.mailOrbit:before,.mailOrbit:after{content:"";position:absolute;inset:12%;border:1px solid #ffffff12;border-radius:50%}.mailOrbit:after{inset:25%;border-color:#ffffff1c}
+.letter{position:relative;width:67%;border:1px solid #ffffff29;border-radius:26px;background:linear-gradient(145deg,#ffffff0d,#ffffff03);padding:25px 24px 22px;transform:rotate(-9deg);box-shadow:0 35px 70px #0005}
+.letter svg{width:100%;height:auto;stroke:#e9e9f4;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.letter span{display:block;text-align:center;font-size:clamp(.9rem,1.6vw,1.4rem);line-height:1.4;letter-spacing:-.02em;margin-top:8px}
+.aboutOpening[data-theme=light]{padding-top:112px;padding-bottom:28px}
+.aboutOpening [data-about-layout]{align-items:start}
+.aboutOpening [data-about-art]{margin-top:-50px;aspect-ratio:1.6;max-width:none}
+.aboutOpening [data-about-dog]{width:40%;left:28%;bottom:16%}
+.aboutOpening [data-about-cat]{width:28%;left:60%;bottom:19%}
+@media(max-width:1100px){.collectionLayout{gap:5%}.contact{padding-top:116px}.contactLayout{gap:5%;min-height:420px}.aboutOpening[data-theme=light]{padding-top:104px}.aboutOpening [data-about-art]{margin-top:-44px}}
+/* On portrait tablets the introduction and first game form the first screen. */
+@media(min-width:701px) and (max-width:1400px) and (orientation:portrait){
+ .collection{min-height:52svh;padding:112px 0 28px}
+ .collectionCopy h1{font-size:clamp(2.6rem,4.8vw,4.6rem)}
+ .collectionCopy>p:not(.eyebrow){font-size:1rem;margin-block:18px}
+ .collectionArt{width:min(100%,max(230px,calc((52svh - 152px) * 1.12)))}
+ .collection .eyebrow{font-size:.6rem;margin-bottom:15px}
+}
+@media(max-width:700px){.collection{padding:106px 0 40px}.collectionLayout{grid-template-columns:1fr;gap:32px;min-height:0}.collectionCopy h1,.contactCopy h1{font-size:clamp(2.7rem,11vw,4.6rem)}.eyebrow{font-size:.58rem;margin-bottom:17px}.collectionCopy>p:not(.eyebrow){font-size:.98rem;margin-block:20px}.collectionArt{width:min(100%,450px);margin:5px auto 0}.cover{border-width:4px;border-radius:14px}.cover>span{font-size:.6rem;padding:17px 7px 7px}.contact{padding:108px 0 50px}.contactLayout{grid-template-columns:1fr;gap:35px;min-height:0}.contactCopy>p:not(.eyebrow){font-size:1rem;margin-top:22px}.contactActions{gap:16px;margin-top:25px}.contactActions>a:last-child{font-size:.8rem}.mailArt{width:min(74%,300px);margin-inline:auto}.letter{padding:18px 18px 16px;border-radius:20px}.letter span{font-size:.85rem}.aboutOpening[data-theme=light]{padding-top:104px;padding-bottom:15px}.aboutOpening [data-about-art]{margin-top:24px}}
+@media(max-width:700px){
+ .collection{min-height:100svh;padding:102px 0 32px}
+ .collectionLayout{gap:22px}
+ .collectionCopy h1{font-size:clamp(2.25rem,9.3vw,3.5rem)}
+ .collectionCopy>p:not(.eyebrow){font-size:.94rem;line-height:1.5;margin-block:16px}
+ .collection .eyebrow{margin-bottom:13px}
+ .collectionArt{width:min(100%,max(220px,calc((100svh - 470px) * 1.12)),420px);margin:0 auto;justify-self:center}
+ .aboutOpening [data-about-art]{margin-top:24px;aspect-ratio:1.2}
+ .aboutOpening [data-about-dog]{width:32%;left:32%;bottom:11%}
+ .aboutOpening [data-about-cat]{width:24%;left:56%;bottom:14%}
+}
+/* Only transforms animate; the original monochrome contact illustration stays intact. */
+.letter{animation:mail-float 8s ease-in-out infinite;animation-play-state:paused;transform-style:preserve-3d}
+.letter svg{overflow:visible;perspective:600px}
+.mailNote{transform:translateY(13px);animation:mail-note 8s cubic-bezier(.4,0,.2,1) infinite;animation-play-state:paused}
+.mailFlap{transform-origin:120px 30px;animation:mail-flap 8s cubic-bezier(.4,0,.2,1) infinite;animation-play-state:paused}
+.mailOrbit{animation:mail-orbit 26s linear infinite;animation-play-state:paused;border-style:dashed}
+.mailOrbit:before{inset:12%;border-style:solid}
+.mailArt[data-in-view=true] [data-mail-motion]{animation-play-state:running}
+@keyframes mail-float{0%,100%{transform:translateY(0) rotate(-9deg)}50%{transform:translateY(-13px) rotate(-5deg)}}
+@keyframes mail-note{0%,18%,86%,100%{transform:translateY(13px)}40%,64%{transform:translateY(-17px)}}
+@keyframes mail-flap{0%,12%,90%,100%{transform:scaleY(1)}30%,73%{transform:scaleY(-.65)}}
+@keyframes mail-orbit{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.cover{transition:none}.cover:hover{translate:none}.mailArt [data-mail-motion]{animation:none!important}.mailNote{transform:translateY(13px)}}
+
+/* A single short mail gesture respects visitors who leave the page open. */
+.letter,.mailNote,.mailFlap{animation-duration:4.5s;animation-iteration-count:1;animation-fill-mode:both}
+.mailOrbit{animation:none}

@@ -1,0 +1,424 @@
+[
+  {
+    "route": "/games",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/about",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/contact",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog/the-first-game",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/games",
+    "viewport": "wide-desktop",
+    "width": 1900,
+    "height": 1080,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/about",
+    "viewport": "wide-desktop",
+    "width": 1900,
+    "height": 1080,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/contact",
+    "viewport": "wide-desktop",
+    "width": 1900,
+    "height": 1080,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog",
+    "viewport": "wide-desktop",
+    "width": 1900,
+    "height": 1080,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog/the-first-game",
+    "viewport": "wide-desktop",
+    "width": 1900,
+    "height": 1080,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/games",
+    "viewport": "short-desktop",
+    "width": 1366,
+    "height": 600,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/about",
+    "viewport": "short-desktop",
+    "width": 1366,
+    "height": 600,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/contact",
+    "viewport": "short-desktop",
+    "width": 1366,
+    "height": 600,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog",
+    "viewport": "short-desktop",
+    "width": 1366,
+    "height": 600,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog/the-first-game",
+    "viewport": "short-desktop",
+    "width": 1366,
+    "height": 600,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/games",
+    "viewport": "tablet",
+    "width": 820,
+    "height": 1180,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/about",
+    "viewport": "tablet",
+    "width": 820,
+    "height": 1180,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/contact",
+    "viewport": "tablet",
+    "width": 820,
+    "height": 1180,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog",
+    "viewport": "tablet",
+    "width": 820,
+    "height": 1180,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog/the-first-game",
+    "viewport": "tablet",
+    "width": 820,
+    "height": 1180,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/games",
+    "viewport": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/about",
+    "viewport": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/contact",
+    "viewport": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog",
+    "viewport": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog/the-first-game",
+    "viewport": "tablet-landscape",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/games",
+    "viewport": "phone",
+    "width": 390,
+    "height": 844,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/about",
+    "viewport": "phone",
+    "width": 390,
+    "height": 844,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/contact",
+    "viewport": "phone",
+    "width": 390,
+    "height": 844,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog",
+    "viewport": "phone",
+    "width": 390,
+    "height": 844,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog/the-first-game",
+    "viewport": "phone",
+    "width": 390,
+    "height": 844,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/games",
+    "viewport": "small-phone",
+    "width": 320,
+    "height": 740,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/about",
+    "viewport": "small-phone",
+    "width": 320,
+    "height": 740,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/contact",
+    "viewport": "small-phone",
+    "width": 320,
+    "height": 740,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog",
+    "viewport": "small-phone",
+    "width": 320,
+    "height": 740,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "route": "/devlog/the-first-game",
+    "viewport": "small-phone",
+    "width": 320,
+    "height": 740,
+    "overflow": false,
+    "headingVisible": true,
+    "moonMotion": true,
+    "pauseResume": true,
+    "artworkLoaded": true
+  },
+  {
+    "mode": "reduced-motion",
+    "pages": 5,
+    "readable": true,
+    "staticMoon": true
+  },
+  {
+    "mode": "no-javascript",
+    "pages": 5,
+    "readable": true,
+    "staticMoon": true
+  },
+  {
+    "navigation": "home → about → games → Just Jump → home",
+    "mastheadReset": true,
+    "homepageMotionRestored": true
+  },
+  {
+    "excludedGame": "just-jump",
+    "width": 1440,
+    "unchangedViewportPixels": true
+  },
+  {
+    "excludedGame": "dreamward",
+    "width": 1440,
+    "unchangedViewportPixels": true
+  },
+  {
+    "excludedGame": "just-jump",
+    "width": 390,
+    "unchangedViewportPixels": true
+  },
+  {
+    "excludedGame": "dreamward",
+    "width": 390,
+    "unchangedViewportPixels": true
+  }
+]

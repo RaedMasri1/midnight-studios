@@ -1,0 +1,72 @@
+[
+  {
+    "name": "desktop",
+    "entryFront": -0.4728,
+    "fullyVisibleFront": -1.80211,
+    "afterFirstWheel": -3.64173,
+    "status": "passed"
+  },
+  {
+    "name": "scaled-desktop",
+    "entryFront": -0.47201,
+    "fullyVisibleFront": -1.80131,
+    "afterFirstWheel": -4.44067,
+    "status": "passed"
+  },
+  {
+    "name": "standard-desktop",
+    "entryFront": -0.4728,
+    "fullyVisibleFront": -1.8021,
+    "afterFirstWheel": -3.61188,
+    "status": "passed"
+  },
+  {
+    "name": "short-desktop",
+    "entryFront": -0.4728,
+    "fullyVisibleFront": -1.8021,
+    "afterFirstWheel": -4.39885,
+    "status": "passed"
+  },
+  {
+    "name": "wide-desktop",
+    "entryFront": -0.4728,
+    "fullyVisibleFront": -1.8021,
+    "afterFirstWheel": -3.33229,
+    "status": "passed"
+  },
+  {
+    "name": "tablet",
+    "entryFront": -0.4728,
+    "fullyVisibleFront": -1.80211,
+    "afterFirstWheel": -3.21121,
+    "status": "passed"
+  },
+  {
+    "name": "tablet-landscape",
+    "entryFront": -2.20761,
+    "fullyVisibleFront": -6.68864,
+    "afterFirstWheel": -7.14897,
+    "status": "passed"
+  },
+  {
+    "name": "small-tablet",
+    "entryFront": -0.4728,
+    "fullyVisibleFront": -1.8021,
+    "afterFirstWheel": -3.4096,
+    "status": "passed"
+  },
+  {
+    "name": "phone",
+    "entryFront": -2.90552,
+    "fullyVisibleFront": -7.69991,
+    "afterFirstWheel": -7.92552,
+    "status": "passed"
+  },
+  {
+    "name": "small-phone",
+    "entryFront": -2.67524,
+    "fullyVisibleFront": -7.43871,
+    "afterFirstWheel": -7.78475,
+    "status": "passed"
+  }
+]

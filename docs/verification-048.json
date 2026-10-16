@@ -1,0 +1,21 @@
+{
+  "version": "0.4.8",
+  "productionBuild": "passed",
+  "typeScript": "passed",
+  "exportedContentRoutes": 11,
+  "existingChecks": "passed",
+  "semanticContentChecks": "passed",
+  "preservedWebsiteAssets": 278,
+  "preservedOriginalArtworkFiles": 18,
+  "newWebsiteImages": 6,
+  "unchangedJournalArticle": true,
+  "imageSize": [
+    1086,
+    1448
+  ],
+  "imageAspectRatio": "3:4",
+  "allRouteJsGzipBytes": 325544,
+  "homeEntryJsGzipBytes": 209467,
+  "browserRendering": "not verified",
+  "devicePerformance": "not measured"
+}

@@ -1,0 +1,715 @@
+[
+  {
+    "slug": "just-jump",
+    "publication": "published",
+    "name": "Just Jump!",
+    "genre": "Endless jumping on mobile",
+    "schemaGenre": "Endless jumping",
+    "description": "Time your next leap, unlock new characters, and climb from sunlit cliffs to glowing crystal caves.",
+    "className": "jump",
+    "image": "/assets/just-jump-ascent.webp",
+    "imageWidth": 1672,
+    "imageHeight": 941,
+    "imageAlt": "Slender orange Just Dog rising vertically through small green-topped floating platforms in a bright forest world",
+    "status": "In development",
+    "seoDescription": "Time your next leap, unlock new characters, and climb from sunlit cliffs to glowing crystal caves.",
+    "detailHeading": "Your next jump is the challenge.",
+    "detailParagraphs": [
+      "Choose your jumper, collect upgrades and cosmetics, and keep chasing a higher score through changing environments."
+    ],
+    "features": [
+      {
+        "title": "Characters & abilities",
+        "text": "Find different ways to keep climbing."
+      },
+      {
+        "title": "Collect & unlock",
+        "text": "Discover collectibles, cosmetics, and progression."
+      },
+      {
+        "title": "New environments",
+        "text": "Jump through a variety of settings."
+      }
+    ],
+    "availability": "Coming soon. Release details will follow.",
+    "stores": {
+      "appStore": {
+        "released": false,
+        "url": null,
+        "appId": null
+      },
+      "googlePlay": {
+        "released": false,
+        "url": null,
+        "packageName": null
+      }
+    },
+    "page": {
+      "developer": "Midnight Studios",
+      "pitch": "One more jump. One new personal best.",
+      "statusLabel": "In development",
+      "galleryTitle": "A closer look.",
+      "galleryIntro": "Development gameplay and character screens.",
+      "screenshots": [
+        {
+          "src": "/assets/just-jump-forest.webp",
+          "width": 828,
+          "height": 1792,
+          "alt": "Just Dog climbing through a bright forest with platforms and collectibles",
+          "caption": "Keep climbing",
+          "kind": "gameplay",
+          "variants": [
+            {
+              "src": "/assets/just-jump-forest-384.webp",
+              "width": 384,
+              "height": 831
+            },
+            {
+              "src": "/assets/just-jump-forest-640.webp",
+              "width": 640,
+              "height": 1385
+            }
+          ]
+        },
+        {
+          "src": "/assets/just-jump-crystal-caves.webp",
+          "width": 828,
+          "height": 1792,
+          "alt": "Black cat jumping between glowing platforms in a blue crystal cave",
+          "caption": "Crystal caves",
+          "kind": "gameplay",
+          "variants": [
+            {
+              "src": "/assets/just-jump-crystal-caves-384.webp",
+              "width": 384,
+              "height": 831
+            },
+            {
+              "src": "/assets/just-jump-crystal-caves-640.webp",
+              "width": 640,
+              "height": 1385
+            }
+          ]
+        },
+        {
+          "src": "/assets/just-jump-characters.webp",
+          "width": 828,
+          "height": 1792,
+          "alt": "Just Dog character selection and customization screen",
+          "caption": "Choose your character",
+          "kind": "gameplay",
+          "variants": [
+            {
+              "src": "/assets/just-jump-characters-384.webp",
+              "width": 384,
+              "height": 831
+            },
+            {
+              "src": "/assets/just-jump-characters-640.webp",
+              "width": 640,
+              "height": 1385
+            }
+          ]
+        },
+        {
+          "src": "/assets/just-jump-sunny-platforms.webp",
+          "width": 828,
+          "height": 1792,
+          "alt": "Just Dog jumping between floating platforms against a bright sky",
+          "caption": "One more jump",
+          "kind": "gameplay",
+          "variants": [
+            {
+              "src": "/assets/just-jump-sunny-platforms-384.webp",
+              "width": 384,
+              "height": 831
+            },
+            {
+              "src": "/assets/just-jump-sunny-platforms-640.webp",
+              "width": 640,
+              "height": 1385
+            }
+          ]
+        },
+        {
+          "src": "/assets/just-jump-rocket-upgrades.webp",
+          "width": 828,
+          "height": 1792,
+          "alt": "Rocket slots, starting rockets and boost upgrades in Just Jump!",
+          "caption": "Rocket upgrades",
+          "kind": "gameplay",
+          "variants": [
+            {
+              "src": "/assets/just-jump-rocket-upgrades-384.webp",
+              "width": 384,
+              "height": 831
+            },
+            {
+              "src": "/assets/just-jump-rocket-upgrades-640.webp",
+              "width": 640,
+              "height": 1385
+            }
+          ]
+        },
+        {
+          "src": "/assets/just-jump-boosts.webp",
+          "width": 828,
+          "height": 1792,
+          "alt": "Glowing boost arrows and crystal platforms in Just Jump!",
+          "caption": "Climb higher",
+          "kind": "gameplay",
+          "variants": [
+            {
+              "src": "/assets/just-jump-boosts-384.webp",
+              "width": 384,
+              "height": 831
+            },
+            {
+              "src": "/assets/just-jump-boosts-640.webp",
+              "width": 640,
+              "height": 1385
+            }
+          ]
+        },
+        {
+          "src": "/assets/just-jump-mystery-boxes.webp",
+          "width": 828,
+          "height": 1792,
+          "alt": "Mystery boxes and cosmetic rewards shown in Just Jump!",
+          "caption": "Collect cosmetics",
+          "kind": "gameplay",
+          "variants": [
+            {
+              "src": "/assets/just-jump-mystery-boxes-384.webp",
+              "width": 384,
+              "height": 831
+            },
+            {
+              "src": "/assets/just-jump-mystery-boxes-640.webp",
+              "width": 640,
+              "height": 1385
+            }
+          ]
+        }
+      ],
+      "overviewTitle": "Your next jump is the challenge.",
+      "overviewParagraphs": [
+        "Choose your jumper, collect upgrades and cosmetics, and keep chasing a higher score through changing environments."
+      ],
+      "highlights": [
+        {
+          "title": "Characters",
+          "text": "Find your favourite jumper.",
+          "icon": "characters"
+        },
+        {
+          "title": "Progression",
+          "text": "Collect, customize and upgrade.",
+          "icon": "progression"
+        },
+        {
+          "title": "Platforms",
+          "text": "Planned for iOS and Android.",
+          "icon": "platforms"
+        }
+      ],
+      "reviewsEnabled": true,
+      "reviewsTitle": "Player reviews",
+      "reviewsEmptyTitle": "No reviews yet.",
+      "reviewsEmptyText": "Played an early build? Share your experience.",
+      "feedbackLabel": "Your feedback",
+      "feedbackPlaceholder": "What did you think of the game?",
+      "reviewPolicy": "One review per account. You can edit yours.",
+      "reviewUnavailableTitle": "Reviews aren’t open yet.",
+      "reviewUnavailableText": "You’ll be able to sign in and share your experience when reviews open.",
+      "signInUrl": null,
+      "footerText": "Independent mobile games.",
+      "galleryEmptyText": "Gameplay screenshots will be shared as development progresses.",
+      "icon": {
+        "src": "/assets/just-jump-icon-source.png",
+        "width": 517,
+        "height": 517,
+        "alt": "Just Jump! app icon with the dog, black cat, bear, frog, rabbit and sheep",
+        "crop": {
+          "x": 324,
+          "y": 184,
+          "width": 128,
+          "height": 128
+        }
+      },
+      "availableStatusLabel": "Available now"
+    },
+    "platforms": [
+      "iOS",
+      "Android"
+    ],
+    "card": {
+      "src": "/assets/just-jump-ascent.webp",
+      "width": 1672,
+      "height": 941,
+      "alt": "Slender orange Just Dog rising vertically through small green-topped floating platforms in a bright forest world",
+      "caption": "Just Jump! concept artwork · Inspired by gameplay",
+      "fit": "cover",
+      "position": "50% 50%",
+      "variants": [
+        {
+          "src": "/assets/just-jump-ascent-640.webp",
+          "width": 640
+        },
+        {
+          "src": "/assets/just-jump-ascent-960.webp",
+          "width": 960
+        },
+        {
+          "src": "/assets/just-jump-ascent-1280.webp",
+          "width": 1280
+        }
+      ]
+    }
+  },
+  {
+    "slug": "dreamward",
+    "publication": "published",
+    "name": "Dreamward",
+    "genre": "Fantasy defense on mobile",
+    "schemaGenre": "Fantasy defense",
+    "description": "Cast ancient spells and shape your strategy with every upgrade in a moonlit fantasy world.",
+    "className": "dream",
+    "image": "/assets/dreamward.webp",
+    "imageWidth": 1983,
+    "imageHeight": 793,
+    "imageAlt": "Dreamward concept art: a moonlit fantasy citadel",
+    "status": "In development",
+    "seoDescription": "Cast ancient spells and shape your strategy with every upgrade in a moonlit fantasy world.",
+    "detailHeading": "Make every spell count.",
+    "detailParagraphs": [
+      "Build your strategy around ancient spells and upgrades in a moonlit fantasy setting."
+    ],
+    "features": [
+      {
+        "title": "Ancient spells",
+        "text": "Magic at the heart of the experience."
+      },
+      {
+        "title": "Strategic upgrades",
+        "text": "Build on the choices you make."
+      },
+      {
+        "title": "Moonlit environments",
+        "text": "A fantasy setting to discover."
+      }
+    ],
+    "availability": "Coming soon. Release details will follow.",
+    "stores": {
+      "appStore": {
+        "released": false,
+        "url": null,
+        "appId": null
+      },
+      "googlePlay": {
+        "released": false,
+        "url": null,
+        "packageName": null
+      }
+    },
+    "page": {
+      "developer": "Midnight Studios",
+      "pitch": "Ancient magic. A strategy of your own.",
+      "statusLabel": "Coming soon",
+      "galleryTitle": "A closer look.",
+      "galleryIntro": "An early look at the world of Dreamward.",
+      "screenshots": [
+        {
+          "src": "/assets/dreamward-colour-concept.webp",
+          "width": 1536,
+          "height": 1024,
+          "alt": "Dreamward concept artwork: a bright castle above floating islands and waterfalls",
+          "caption": "Concept artwork",
+          "kind": "concept",
+          "variants": [
+            {
+              "src": "/assets/dreamward-colour-concept-640.webp",
+              "width": 640,
+              "height": 427
+            },
+            {
+              "src": "/assets/dreamward-colour-concept-960.webp",
+              "width": 960,
+              "height": 640
+            }
+          ]
+        }
+      ],
+      "overviewTitle": "Make every spell count.",
+      "overviewParagraphs": [
+        "Build your strategy around ancient spells and upgrades in a moonlit fantasy setting."
+      ],
+      "highlights": [
+        {
+          "title": "Ancient spells",
+          "text": "Magic at the heart of the experience."
+        },
+        {
+          "title": "Strategic upgrades",
+          "text": "Shape the choices you make."
+        },
+        {
+          "title": "Moonlit worlds",
+          "text": "Discover a fantasy setting in development."
+        }
+      ],
+      "reviewsEnabled": true,
+      "reviewsTitle": "Player reviews",
+      "reviewsEmptyTitle": "No reviews yet.",
+      "reviewsEmptyText": "Played an early build? Share your experience.",
+      "feedbackLabel": "Your feedback",
+      "feedbackPlaceholder": "What did you think of the game?",
+      "reviewPolicy": "One review per account. You can edit yours.",
+      "reviewUnavailableTitle": "Reviews aren’t open yet.",
+      "reviewUnavailableText": "You’ll be able to sign in and share your experience when reviews open.",
+      "signInUrl": null,
+      "footerText": "Independent mobile games.",
+      "galleryEmptyText": "Gameplay screenshots will be shared as development progresses.",
+      "availableStatusLabel": "Available now"
+    },
+    "platforms": [
+      "Mobile"
+    ],
+    "card": {
+      "src": "/assets/dreamward-colour-concept.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Dreamward concept artwork: a bright castle above floating islands and waterfalls",
+      "caption": "Concept artwork",
+      "position": "50% 50%",
+      "variants": [
+        {
+          "src": "/assets/dreamward-colour-concept-640.webp",
+          "width": 640
+        },
+        {
+          "src": "/assets/dreamward-colour-concept-960.webp",
+          "width": 960
+        }
+      ]
+    }
+  },
+  {
+    "slug": "tadri",
+    "publication": "published",
+    "name": "Tadri",
+    "genre": "Multiplayer trivia",
+    "schemaGenre": "Multiplayer trivia",
+    "description": "Challenge your friends across hundreds of trivia categories. Think fast and find out who knows more.",
+    "className": "neutral",
+    "image": "/assets/tadri.webp",
+    "imageWidth": 1672,
+    "imageHeight": 941,
+    "imageAlt": "Tadri website concept artwork; official game artwork pending",
+    "status": "In development",
+    "seoDescription": "Challenge your friends across hundreds of trivia categories. Think fast and find out who knows more.",
+    "detailHeading": "Bring your best answers.",
+    "detailParagraphs": [
+      "Go head to head with friends across entertainment, gaming, music, sports, and general knowledge. Put what you know to the test across hundreds of categories."
+    ],
+    "features": [
+      {
+        "title": "Challenge friends",
+        "text": "Put your knowledge to the test together."
+      },
+      {
+        "title": "Hundreds of categories",
+        "text": "Explore entertainment, gaming, music, sports and general knowledge."
+      },
+      {
+        "title": "Multiplayer trivia",
+        "text": "A shared challenge for curious minds."
+      }
+    ],
+    "availability": "Coming soon. Release details will follow.",
+    "stores": {
+      "appStore": {
+        "released": false,
+        "url": null,
+        "appId": null
+      },
+      "googlePlay": {
+        "released": false,
+        "url": null,
+        "packageName": null
+      }
+    },
+    "page": {
+      "developer": "Midnight Studios",
+      "pitch": "Think fast. Play together.",
+      "statusLabel": "Coming soon",
+      "galleryTitle": "A closer look.",
+      "galleryIntro": "An early look at the world of Tadri.",
+      "screenshots": [
+        {
+          "src": "/assets/tadri.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Tadri website concept artwork; official game artwork pending",
+          "caption": "Concept artwork",
+          "kind": "concept"
+        }
+      ],
+      "overviewTitle": "Bring your best answers.",
+      "overviewParagraphs": [
+        "Go head to head with friends across entertainment, gaming, music, sports, and general knowledge. Put what you know to the test across hundreds of categories."
+      ],
+      "highlights": [
+        {
+          "title": "Challenge friends",
+          "text": "Put your knowledge to the test together."
+        },
+        {
+          "title": "Hundreds of categories",
+          "text": "Explore entertainment, gaming, music, sports and general knowledge."
+        },
+        {
+          "title": "Multiplayer trivia",
+          "text": "A shared challenge for curious minds."
+        }
+      ],
+      "reviewsEnabled": false,
+      "reviewsTitle": "Player reviews",
+      "reviewsEmptyTitle": "No reviews yet.",
+      "reviewsEmptyText": "Played an early build? Share your experience.",
+      "feedbackLabel": "Your feedback",
+      "feedbackPlaceholder": "What did you think of the game?",
+      "reviewPolicy": "One review per account. You can edit yours.",
+      "reviewUnavailableTitle": "Reviews aren’t open yet.",
+      "reviewUnavailableText": "You’ll be able to sign in and share your experience when reviews open.",
+      "signInUrl": null,
+      "footerText": "Imagination never sleeps",
+      "galleryEmptyText": "Official game artwork will be shared as development progresses.",
+      "availableStatusLabel": "Available now"
+    },
+    "platforms": [
+      "Mobile"
+    ],
+    "card": {
+      "src": "/assets/tadri.webp",
+      "width": 1672,
+      "height": 941,
+      "alt": "Tadri website concept artwork; official game artwork pending",
+      "caption": "Concept artwork",
+      "fit": "contain",
+      "position": "50% 50%"
+    }
+  },
+  {
+    "slug": "break-the-heel",
+    "publication": "published",
+    "name": "Break the Heel!",
+    "genre": "Stylish casual",
+    "schemaGenre": "Stylish casual",
+    "description": "Smash the blocks beneath your heels, explore new districts, and unlock your next look.",
+    "className": "neutral",
+    "image": "/assets/break-the-heel.webp",
+    "imageWidth": 1672,
+    "imageHeight": 941,
+    "imageAlt": "Break the Heel! website concept artwork; official game artwork pending",
+    "status": "In development",
+    "seoDescription": "Smash the blocks beneath your heels, explore new districts, and unlock your next look.",
+    "detailHeading": "Break through to your next look.",
+    "detailParagraphs": [
+      "Bring the blocks down beneath your high heels as you explore distinct districts and unlock fashionable characters."
+    ],
+    "features": [
+      {
+        "title": "Smash blocks",
+        "text": "Break through the blocks beneath high heels."
+      },
+      {
+        "title": "Explore districts",
+        "text": "Discover unique districts as you progress."
+      },
+      {
+        "title": "Unlock characters",
+        "text": "Make room for fashionable characters."
+      }
+    ],
+    "availability": "Coming soon. Release details will follow.",
+    "stores": {
+      "appStore": {
+        "released": false,
+        "url": null,
+        "appId": null
+      },
+      "googlePlay": {
+        "released": false,
+        "url": null,
+        "packageName": null
+      }
+    },
+    "page": {
+      "developer": "Midnight Studios",
+      "pitch": "Smash blocks. Step into style.",
+      "statusLabel": "Coming soon",
+      "galleryTitle": "A closer look.",
+      "galleryIntro": "An early look at the world of Break the Heel!.",
+      "screenshots": [
+        {
+          "src": "/assets/break-the-heel.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Break the Heel! website concept artwork; official game artwork pending",
+          "caption": "Concept artwork",
+          "kind": "concept"
+        }
+      ],
+      "overviewTitle": "Break through to your next look.",
+      "overviewParagraphs": [
+        "Bring the blocks down beneath your high heels as you explore distinct districts and unlock fashionable characters."
+      ],
+      "highlights": [
+        {
+          "title": "Smash blocks",
+          "text": "Break through the blocks beneath high heels."
+        },
+        {
+          "title": "Explore districts",
+          "text": "Discover unique districts as you progress."
+        },
+        {
+          "title": "Unlock characters",
+          "text": "Make room for fashionable characters."
+        }
+      ],
+      "reviewsEnabled": false,
+      "reviewsTitle": "Player reviews",
+      "reviewsEmptyTitle": "No reviews yet.",
+      "reviewsEmptyText": "Played an early build? Share your experience.",
+      "feedbackLabel": "Your feedback",
+      "feedbackPlaceholder": "What did you think of the game?",
+      "reviewPolicy": "One review per account. You can edit yours.",
+      "reviewUnavailableTitle": "Reviews aren’t open yet.",
+      "reviewUnavailableText": "You’ll be able to sign in and share your experience when reviews open.",
+      "signInUrl": null,
+      "footerText": "Imagination never sleeps",
+      "galleryEmptyText": "Official game artwork will be shared as development progresses.",
+      "availableStatusLabel": "Available now"
+    },
+    "platforms": [
+      "Mobile"
+    ],
+    "card": {
+      "src": "/assets/break-the-heel.webp",
+      "width": 1672,
+      "height": 941,
+      "alt": "Break the Heel! website concept artwork; official game artwork pending",
+      "caption": "Concept artwork",
+      "fit": "cover",
+      "position": "50% 50%"
+    }
+  },
+  {
+    "slug": "idle-chaos",
+    "publication": "published",
+    "name": "Idle Chaos",
+    "genre": "Idle simulation",
+    "schemaGenre": "Idle simulation",
+    "description": "Turn a small disturbance into a mighty storm. Upgrade your powers and let the chaos grow.",
+    "className": "neutral",
+    "image": "/assets/idle-chaos-storm.webp",
+    "imageWidth": 1100,
+    "imageHeight": 800,
+    "imageAlt": "Idle Chaos website concept artwork; official game artwork pending",
+    "status": "In development",
+    "seoDescription": "Turn a small disturbance into a mighty storm. Upgrade your powers and let the chaos grow.",
+    "detailHeading": "Grow the storm.",
+    "detailParagraphs": [
+      "Unleash natural disasters, develop your destructive powers, and watch small disturbances grow into unstoppable catastrophes."
+    ],
+    "features": [
+      {
+        "title": "Unleash disasters",
+        "text": "Turn natural forces into your playground."
+      },
+      {
+        "title": "Upgrade your powers",
+        "text": "Develop your destructive abilities."
+      },
+      {
+        "title": "Grow the chaos",
+        "text": "Evolve from minor disturbances into unstoppable catastrophes."
+      }
+    ],
+    "availability": "Coming soon. Release details will follow.",
+    "stores": {
+      "appStore": {
+        "released": false,
+        "url": null,
+        "appId": null
+      },
+      "googlePlay": {
+        "released": false,
+        "url": null,
+        "packageName": null
+      }
+    },
+    "page": {
+      "developer": "Midnight Studios",
+      "pitch": "Start small. Become unstoppable.",
+      "statusLabel": "Coming soon",
+      "galleryTitle": "A closer look.",
+      "galleryIntro": "An early look at the world of Idle Chaos.",
+      "screenshots": [
+        {
+          "src": "/assets/idle-chaos-storm.webp",
+          "width": 1100,
+          "height": 800,
+          "alt": "Idle Chaos website concept artwork; official game artwork pending",
+          "caption": "Concept artwork",
+          "kind": "concept"
+        }
+      ],
+      "overviewTitle": "Grow the storm.",
+      "overviewParagraphs": [
+        "Unleash natural disasters, develop your destructive powers, and watch small disturbances grow into unstoppable catastrophes."
+      ],
+      "highlights": [
+        {
+          "title": "Unleash disasters",
+          "text": "Turn natural forces into your playground."
+        },
+        {
+          "title": "Upgrade your powers",
+          "text": "Develop your destructive abilities."
+        },
+        {
+          "title": "Grow the chaos",
+          "text": "Evolve from minor disturbances into unstoppable catastrophes."
+        }
+      ],
+      "reviewsEnabled": false,
+      "reviewsTitle": "Player reviews",
+      "reviewsEmptyTitle": "No reviews yet.",
+      "reviewsEmptyText": "Played an early build? Share your experience.",
+      "feedbackLabel": "Your feedback",
+      "feedbackPlaceholder": "What did you think of the game?",
+      "reviewPolicy": "One review per account. You can edit yours.",
+      "reviewUnavailableTitle": "Reviews aren’t open yet.",
+      "reviewUnavailableText": "You’ll be able to sign in and share your experience when reviews open.",
+      "signInUrl": null,
+      "footerText": "Imagination never sleeps",
+      "galleryEmptyText": "Official game artwork will be shared as development progresses.",
+      "availableStatusLabel": "Available now"
+    },
+    "platforms": [
+      "Mobile"
+    ],
+    "card": {
+      "src": "/assets/idle-chaos-storm.webp",
+      "width": 1100,
+      "height": 800,
+      "alt": "Idle Chaos website concept artwork; official game artwork pending",
+      "caption": "Concept artwork",
+      "fit": "cover",
+      "position": "50% 50%"
+    }
+  }
+]

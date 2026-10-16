@@ -1,0 +1,112 @@
+[
+  {
+    "slug": "the-first-game",
+    "publication": "published",
+    "title": "One jumping game. Two years of lessons.",
+    "cardTitle": "One jumping game. Two years of lessons.",
+    "seoTitle": "Building Just Jump!: Costs & Lessons | Midnight Studios",
+    "seoDescription": "How a simple mobile jumping game grew into two years of development and a projected $91,396.84 investment. Read the first Midnight Studios development story.",
+    "summary": "The costs, redesigns, and lessons behind two years of building Just Jump!",
+    "lead": "A simple idea inspired by Froggy Jump became the first game from Midnight Studios—and a much bigger project than its founder expected.",
+    "image": "/assets/just-jump-ascent.webp",
+    "imageAlt": "Slender orange Just Dog rising vertically through small green-topped floating platforms in a bright forest world",
+    "imageCaption": "Just Jump! concept artwork · Inspired by gameplay",
+    "projectedInvestment": 91396.84,
+    "investmentCaption": "Projected development investment, documented in the founder’s first video.",
+    "gameSlug": "just-jump",
+    "body": [
+      {
+        "type": "heading",
+        "text": "A simple beginning"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before Just Jump!, the founder had made a few smaller games. The next step was something more ambitious: a polished mobile game for the App Store and Google Play, built around the fun of bouncing higher and trying not to fall."
+      },
+      {
+        "type": "paragraph",
+        "text": "The plan included different characters, abilities, environments, collectibles, and unlocks. A game design document gathered the ideas in one place. Then more ideas kept arriving."
+      },
+      {
+        "type": "heading",
+        "text": "The moving finish line"
+      },
+      {
+        "type": "paragraph",
+        "text": "New features made the game more interesting, but they also made it harder to finish. Balancing the project with university and work made it clear that help was needed."
+      },
+      {
+        "type": "paragraph",
+        "text": "A developer and an artist, found through Reddit, joined the project. Over two years, characters, environments, progression, cosmetics, animations, and sound effects gradually turned the document into a playable game."
+      },
+      {
+        "type": "heading",
+        "text": "Polish has a cost"
+      },
+      {
+        "type": "paragraph",
+        "text": "Standards changed as the game developed. Interfaces were redesigned, systems were reworked, and some finished features were removed. Every change meant more art, more development, and more time."
+      },
+      {
+        "type": "investment",
+        "label": "At the time of the first video script",
+        "paid": 79396.84,
+        "committed": 12000
+      },
+      {
+        "type": "heading",
+        "text": "A story without the ending"
+      },
+      {
+        "type": "paragraph",
+        "text": "The founder does not yet know how Just Jump! will perform when players get their hands on it. That uncertainty is part of why the Midnight Studios channel exists: to document what happens while it is happening."
+      },
+      {
+        "type": "paragraph",
+        "text": "Just Jump! is the first chapter. Other games are in development, and the ambition is to build a studio that lasts beyond its first release."
+      },
+      {
+        "type": "quote",
+        "lines": [
+          "This is the first game.",
+          "This is the first video.",
+          "And we’re just getting started."
+        ]
+      },
+      {
+        "type": "note",
+        "text": "Adapted from the script for the first Midnight Studios video. Figures and development status describe that point in the journey."
+      }
+    ],
+    "imageWidth": 1672,
+    "imageHeight": 941,
+    "media": {
+      "type": "image",
+      "image": {
+        "src": "/assets/just-jump-ascent.webp",
+        "width": 1672,
+        "height": 941,
+        "alt": "Slender orange Just Dog rising vertically through small green-topped floating platforms in a bright forest world",
+        "caption": "Just Jump! concept artwork · Inspired by gameplay",
+        "fit": "cover",
+        "position": "50% 50%",
+        "variants": [
+          {
+            "src": "/assets/just-jump-ascent-640.webp",
+            "width": 640
+          },
+          {
+            "src": "/assets/just-jump-ascent-960.webp",
+            "width": 960
+          },
+          {
+            "src": "/assets/just-jump-ascent-1280.webp",
+            "width": 1280
+          }
+        ]
+      }
+    },
+    "showOnHomepage": true,
+    "category": "Development"
+  }
+]

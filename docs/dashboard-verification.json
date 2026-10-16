@@ -1,0 +1,38 @@
+{
+  "version": "0.6.1",
+  "verifiedAt": "2026-10-16T15:21:04.879412+00:00",
+  "changes": [
+    "Removed standalone Media navigation, page and upload-library state; uploads remain inside game/journal editors",
+    "Added fail-closed Cloudflare build command that always imports published CMS content",
+    "Added Git-connected publishing setup guide and upgrade instructions",
+    "Added local Git/Supabase runtime exclusions and Node 22 version selection"
+  ],
+  "checks": {
+    "productionBuild": "passed",
+    "typescript": "passed",
+    "websiteRegressionChecks": "passed",
+    "cloudflareMissingConfigurationGuard": "passed",
+    "privateFilesIgnoredByGit": "passed"
+  },
+  "preservationFrom060": {
+    "public/": {
+      "files": 291,
+      "unchanged": true
+    },
+    "design-assets/": {
+      "files": 25,
+      "unchanged": true
+    },
+    "content/": {
+      "files": 4,
+      "unchanged": true
+    }
+  },
+  "externalStatus": "GitHub account identified. Requested repository URL is still needed; no GitHub push or external deployment performed. Existing Supabase data is reused without schema migration.",
+  "verificationLimits": [
+    "Browser interaction not tested in this workspace",
+    "Cloudflare Git build and deploy hook are not connected yet",
+    "Supabase Edge Function deployment and secrets are not configured by this workspace"
+  ],
+  "baseDashboardSecurityChecks": "SQL permissions and transactions and mocked Edge Function authorization passed in v0.6.0; their implementation is unchanged."
+}

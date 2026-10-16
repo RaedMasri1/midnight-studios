@@ -1,0 +1,13 @@
+-- OPTIONAL. Configure only after live stores and the publishing pipeline work.
+-- Enable pg_cron, pg_net and Supabase Vault first in your project.
+-- Store the same random STUDIO_JOB_SECRET in function secrets and Vault.
+-- Run the Vault insert with your real secret privately in SQL Editor; do not commit it.
+-- select vault.create_secret('YOUR-RANDOM-SECRET','midnight_studio_job_secret');
+select cron.schedule('midnight-store-reviews','0 */6 * * *', $$
+ select net.http_post(
+  url := 'https://YOUR-PROJECT.supabase.co/functions/v1/studio-jobs',
+  headers := jsonb_build_object('Content-Type','application/json','X-Studio-Job-Secret',
+   (select decrypted_secret from vault.decrypted_secrets where name='midnight_studio_job_secret' limit 1)),
+  body := '{"action":"reviews"}'::jsonb
+ );
+$$);

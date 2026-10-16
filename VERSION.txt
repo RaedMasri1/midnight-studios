@@ -1,0 +1,5 @@
+Midnight Studios 0.6.1
+Dashboard implementation
+Preview: http://localhost:3061
+Admin: http://localhost:3000/admin after setup
+Version check: http://localhost:3061/__version

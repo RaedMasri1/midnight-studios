@@ -1,0 +1,62 @@
+/* One responsive layout for all five game chapters. Motion stays in the existing scene components. */
+.copy{--chapter-muted:#5f5963;--status-ink:#5d4d58;--status-fill:#ffffff80;--status-line:#5d4d5833}
+.scene[data-game-scene=dream] .copy,.scene[data-game-scene=chaos] .copy{--chapter-muted:#d0d1dd;--status-ink:#e0e1ee;--status-fill:#ffffff0c;--status-line:#ffffff30}
+.status{display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border:1px solid var(--status-line);border-radius:40px;background:var(--status-fill);color:var(--status-ink);font-size:.75rem;line-height:1.2;margin-bottom:22px;white-space:nowrap}
+.status:before{content:"";width:5px;height:5px;flex-shrink:0;border-radius:50%;background:currentColor;opacity:.65}
+.scene[data-game-scene] .copy .genre{font-size:.84rem;line-height:1.4;color:var(--chapter-muted);margin:0 0 12px}
+.scene[data-game-scene] .copy .description{font-size:clamp(1rem,1.5vw,1.3rem);line-height:1.5;color:var(--chapter-muted);max-width:31ch;margin:20px 0 26px;text-wrap:pretty}
+.scene[data-game-scene] [data-stage]{position:relative;height:max(760px,100svh);min-height:0;display:block;box-sizing:border-box;padding:104px 0 64px;overflow:hidden}
+.scene[data-game-scene][data-pinned=true] [data-stage]{position:sticky;top:0;height:100svh;min-height:0;padding:104px 0 64px}
+.scene[data-game-scene] [data-scene-layout]{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.45fr);grid-template-rows:minmax(0,1fr);align-items:center;gap:5%;width:min(1440px,calc(100% - 112px));height:100%;min-height:0;margin-inline:auto}
+.scene[data-copy-side=right] [data-scene-layout]{grid-template-columns:minmax(0,1.45fr) minmax(0,.82fr)}
+.scene[data-game-scene] [data-scene-copy]{grid-column:1;grid-row:1;position:relative;z-index:8;justify-self:start;align-self:center;width:100%;max-width:450px;padding:0;text-align:left;pointer-events:auto}
+.scene[data-copy-side=right] [data-scene-copy]{grid-column:2}
+.scene[data-game-scene] [data-scene-visual]{grid-column:2;grid-row:1;position:relative;inset:auto;display:grid;place-items:center;align-self:stretch;width:100%;height:100%;min-width:0;min-height:0;margin:0;container-type:size}
+.scene[data-copy-side=right] [data-scene-visual]{grid-column:1}
+.scene[data-game-scene] [data-scene-art]{width:min(100%,calc(100cqh * 1.35));height:auto;max-width:none;max-height:none;aspect-ratio:1.35;align-self:center;margin:0}
+.scene[data-game-scene] [data-art=devices]{width:min(90%,calc(100cqh * 1.15));aspect-ratio:1.15}
+.scene[data-game-scene] [data-art=trivia]{width:min(100%,calc(100cqh * 1.16));aspect-ratio:1.16}
+.scene[data-game-scene] [data-art=chaos]{width:min(100%,calc(100cqh * 1.375));aspect-ratio:1.375}
+.scene[data-game-scene] [data-art=book]{position:absolute;left:50%;top:56%;width:min(96cqw,110cqh,850px);height:auto;max-width:none;aspect-ratio:1.76;transform:translate(-50%,-50%);margin:0}
+.scene[data-game-scene] [data-scene-copy] h2{font-size:clamp(3rem,5.2vw,5.6rem);line-height:1.04;max-width:11ch;letter-spacing:-.055em;font-weight:500}
+.scene[data-game-scene] [data-scene-meta]{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);width:min(1440px,calc(100% - 112px));margin:0;display:flex;justify-content:space-between;align-items:center;gap:20px}
+
+@media(max-width:1100px),(max-width:1400px) and (orientation:portrait){
+ .scene[data-game-scene] [data-stage],.scene[data-game-scene][data-pinned=true] [data-stage]{padding:100px 0 60px}
+ .scene[data-game-scene] [data-scene-layout]{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:24px;width:calc(100% - 64px)}
+ .scene[data-game-scene] [data-scene-copy]{grid-column:1;grid-row:1;align-self:start;justify-self:start;max-width:100%}
+ .scene[data-game-scene] [data-scene-visual]{grid-column:1;grid-row:2;align-self:stretch}
+ .scene[data-game-scene] [data-scene-copy] h2{font-size:clamp(3.5rem,7vw,5.5rem);max-width:100%}
+ .scene[data-game-scene] .copy .genre{font-size:.95rem}
+ .scene[data-game-scene] .copy .description{font-size:clamp(1.1rem,1.9vw,1.4rem);max-width:48ch;margin:14px 0 22px}
+ .scene[data-game-scene] [data-scene-copy]>a{font-size:1rem;min-height:48px}
+ .scene[data-game-scene] [data-art=devices]{width:min(84%,calc(100cqh * 1.15));max-width:650px}
+ .scene[data-game-scene] [data-art=book]{width:min(94cqw,100cqh,850px);top:50%}
+ .scene[data-game-scene] [data-scene-meta]{width:calc(100% - 64px);bottom:22px}
+}
+@media(max-width:700px){
+ .scene[data-game-scene][data-pinned=true]{height:240svh}
+ .scene[data-game-scene=jump][data-pinned=true]{height:200svh}
+ .scene[data-game-scene] [data-stage],.scene[data-game-scene][data-pinned=true] [data-stage]{padding:94px 0 58px}
+ .scene[data-game-scene] [data-scene-layout]{width:calc(100% - 40px);gap:20px}
+ .scene[data-game-scene] [data-scene-copy] h2{font-size:clamp(2.45rem,9vw,3.4rem);line-height:1.04}
+ .status{font-size:.7rem;margin-bottom:14px;padding:7px 12px}
+ .scene[data-game-scene] .copy .genre{font-size:.78rem;margin-bottom:8px}
+ .scene[data-game-scene] .copy .description{font-size:1rem;line-height:1.45;max-width:34ch;margin:12px 0 18px}
+ .scene[data-game-scene] [data-scene-copy]>a{font-size:.8rem;min-height:40px;padding:6px 8px 6px 17px}
+ .scene[data-game-scene] [data-art=devices]{width:min(93%,calc(100cqh * 1.15))}
+ .scene[data-game-scene] [data-scene-meta]{width:calc(100% - 40px);bottom:20px;font-size:.6rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .scene[data-game-scene],.scene[data-game-scene][data-pinned=true]{height:auto!important}
+ .scene[data-game-scene] [data-stage]{position:relative!important;height:800px!important}
+}
+
+/* Every game uses the same discreet artwork caption size, with contrast matched to its scene. */
+.scene{--scene-caption:#625e68}
+.scene[data-game-scene=dream]{--scene-caption:#bbb}
+.scene[data-game-scene=trivia]{--scene-caption:#4b6a80}
+.scene[data-game-scene=heel]{--scene-caption:#705864}
+.scene[data-game-scene=chaos]{--scene-caption:#a5bfd2}
+.scene[data-game-scene] [data-scene-meta]>p{font-size:.75rem;font-weight:400;line-height:1.5;color:var(--scene-caption);max-width:36ch;text-shadow:none}
+@media(max-width:700px){.scene[data-game-scene] [data-scene-meta]>p{font-size:.65rem}}

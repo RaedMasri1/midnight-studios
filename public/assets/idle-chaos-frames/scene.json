@@ -1,0 +1,57 @@
+{
+  "version": 2,
+  "frameCount": 96,
+  "firstFrame": 0,
+  "lastFrame": 95,
+  "filenamePattern": "{index:03d}.webp",
+  "desktop": {
+    "width": 1100,
+    "height": 800,
+    "path": "/assets/idle-chaos-frames/"
+  },
+  "mobile": {
+    "width": 660,
+    "height": 480,
+    "path": "/assets/idle-chaos-frames/mobile/"
+  },
+  "poster": "/assets/idle-chaos-storm.webp",
+  "renderer": "ModernGL 5.13 / Mesa EGL software rasterizer; depth-aware volumetric raymarch",
+  "animation": "One coherent deterministic 3D scene; authored progress, no independently generated stills",
+  "effects": [
+    "Irregular volumetric thundercloud anvil",
+    "Rotating volumetric funnel and street-level dust skirt",
+    "170 authored fragments",
+    "150 depth-tested rain streaks",
+    "25 wind-deformed trees, two uproot",
+    "Two lifted roofs and one collapsing front house",
+    "Articulated cliff fractures and emissive fissures",
+    "Twin branched lightning and internal cloud illumination"
+  ],
+  "phases": [
+    {
+      "progress": [
+        0,
+        0.25
+      ],
+      "label": "A small disturbance"
+    },
+    {
+      "progress": [
+        0.25,
+        0.7
+      ],
+      "label": "Build the storm"
+    },
+    {
+      "progress": [
+        0.7,
+        1
+      ],
+      "label": "Unleash chaos"
+    }
+  ],
+  "seed": 71,
+  "desktopBytes": 5396972,
+  "mobileBytes": 2149190,
+  "revision": "storm-v2"
+}

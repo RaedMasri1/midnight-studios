@@ -1,0 +1,23 @@
+{
+  "revision": "storm-v2",
+  "frameCount": 96,
+  "verifiedDecodedFiles": 192,
+  "desktopBytes": 5396972,
+  "mobileBytes": 2149190,
+  "uniqueFrames": 96,
+  "maxAdjacentFrameMeanDifference255": 3.570539393939394,
+  "meanAdjacentFrameMeanDifference255": 2.3361173843700156,
+  "largestAdjacentChangeFramePair": [
+    48,
+    49
+  ],
+  "dimensions": [
+    1100,
+    800
+  ],
+  "mobileDimensions": [
+    660,
+    480
+  ],
+  "posterVerified": true
+}

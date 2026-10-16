@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import {fetchAppleReviews,fetchGoogleReviews,normalizeGoogleReviews,mergeReviews} from './store-review-import.mjs';
+const game='just-jump';
+const appleData={data:[{id:'a1',attributes:{reviewerNickname:'Player A',rating:4,title:'Good',body:'Real written feedback',createdDate:'2026-10-01T00:00:00Z'}}],links:{next:'https://api.appstoreconnect.apple.com/v1/apps/123/customerReviews?cursor=next'}};
+const appleCalls=[];
+const apple=await fetchAppleReviews('123','example-token',game,async(url,options)=>{
+ appleCalls.push(url);assert.equal(options.headers.Authorization,'Bearer example-token');
+ return Response.json(appleCalls.length===1?appleData:{data:[],links:{next:null}});
+});
+assert.equal(appleCalls.length,2);assert.equal(apple[0].source,'app-store');assert.equal(apple[0].rating,4);
+await assert.rejects(()=>fetchAppleReviews('123','example-token',game,async()=>Response.json({data:[],links:{next:'https://untrusted.example/reviews'}})),/pagination URL/);
+await assert.rejects(()=>fetchAppleReviews('123','example-token',game,async()=>new Response('',{status:403})),/403/);
+const googleCalls=[];
+const googleData={reviews:[{reviewId:'g1',authorName:'Player G',comments:[{userComment:{starRating:5,text:'Title\tReview body',lastModified:{seconds:'1790812800'},reviewerLanguage:'en'}},{developerComment:{text:'Not a player review'}}]}],tokenPagination:{nextPageToken:'next'}};
+const google=await fetchGoogleReviews('com.example.game','example-token',game,async url=>{googleCalls.push(url);return Response.json(googleCalls.length===1?googleData:{reviews:[]})});
+assert.equal(googleCalls.length,2);assert.ok(googleCalls[1].includes('token=next'));assert.equal(google[0].body,'Review body');assert.equal(google[0].title,'Title');assert.equal(google[0].source,'google-play');
+assert.deepEqual(normalizeGoogleReviews({reviews:[{reviewId:'rating-only',comments:[{userComment:{starRating:4,text:' '}}]}]},game),[]);
+const before=[...apple,...google,{...google[0],id:'g2',body:'Historic Google feedback'},{...apple[0],gameSlug:'other-game'}];
+const merged=mergeReviews(before,[{...google[0],body:'Updated feedback'}],{gameSlug:game,source:'google-play'});
+assert.equal(merged.length,4);assert.equal(merged.find(r=>r.id==='g1').body,'Updated feedback');assert.ok(merged.some(r=>r.id==='g2'));
+const replacement=mergeReviews(merged,[],{gameSlug:game,source:'app-store',replace:true});
+assert.equal(replacement.length,3);assert.ok(replacement.some(r=>r.gameSlug==='other-game'));
+console.log('PASS: store normalization, pagination, trusted API host, errors, update deduplication and historical Google retention. All requests mocked.');

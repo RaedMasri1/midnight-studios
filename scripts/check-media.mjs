@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {editorialMediaSchema,imageSchema} from '../lib/media-schema.ts';
+const cover={src:'/assets/just-jump-forest.webp',width:828,height:1792,alt:'Development screenshot'};
+assert.equal(editorialMediaSchema.parse({type:'image',image:cover}).type,'image');
+assert.equal(editorialMediaSchema.parse({type:'video',cover,url:'https://www.youtube.com/watch?v=test-review'}).type,'video');
+assert.equal(editorialMediaSchema.safeParse({type:'video',cover}).success,false);
+assert.equal(editorialMediaSchema.safeParse({type:'video',url:'https://youtu.be/test-review'}).success,false);
+for(const url of ['javascript:alert(1)','http://youtu.be/test-review','https://user:password@youtu.be/test-review'])assert.equal(editorialMediaSchema.safeParse({type:'video',cover,url}).success,false);
+assert.equal(imageSchema.safeParse({...cover,src:'https://outside.example/image.jpg'}).success,false);
+console.log('PASS: image/video records, required video cover/link, unsafe URL and remote upload path rejection.');
