@@ -10,7 +10,7 @@ for(const viewport of [480,589,600,620,740,844,900,1080]){
 }
 // Game motion is already advancing when the art arrives. It remains bounded,
 // reaches the complete scene at release, and reverses on the same scroll path.
-for(const viewport of [480,620,844,900,1180])for(const height of [viewport*1.6,viewport*2]){
+for(const viewport of [480,620,844,900,1180])for(const height of [viewport*1.6,viewport*2,viewport*2.3]){
  assert.equal(gameProgress(viewport,height,viewport),0);
  assert(gameProgress(0,height,viewport)>0);
  assert.equal(gameProgress(-(height-viewport),height,viewport),1);

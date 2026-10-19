@@ -10,7 +10,7 @@ export function chapterProgress(top: number, height: number, viewport: number, p
 }
 /** Start a game while its artwork enters, rather than waiting for the whole stage. */
 export function gameProgress(top: number, height: number, viewport: number) {
-  const entry = viewport * .4;
+  const entry = viewport * .2;
   return clamp((entry - top) / Math.max(1, height - viewport + entry));
 }
 export function craftStage(progress: number) { return progress < .34 ? 0 : progress < .7 ? 1 : 2; }

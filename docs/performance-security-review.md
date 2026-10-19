@@ -144,3 +144,47 @@ Dreamward, Tadri and Heel at two matching authored poses across all three
 viewports retained their layouts and artwork. CSS sprite rendering was retained
 to preserve texture repetition and sharpness; a no-JavaScript browser check also
 confirmed the artwork fallback. Original source image files remain unchanged.
+
+
+## Balanced browsing pace — current timing
+
+The fast preview's game chapters felt rushed. Keep its asset delivery, nearby
+preloading/decoding, scoped transform updates, frame buffer and security changes;
+adjust presentation timing independently. Native wheel and touch scrolling stay
+under the visitor's control.
+
+| Section | Desktop height | Phone height |
+| --- | ---: | ---: |
+| Opening hero | 200svh | 200svh |
+| Just Jump | 155svh | 175svh |
+| Dreamward | 230svh | 200svh |
+| Tadri | 200svh | 200svh |
+| Break the Heel | 210svh | 200svh |
+| Idle Chaos | 230svh | 200svh |
+| Studio process | 165svh | 180svh |
+
+These values place the game chapters roughly halfway between the original and
+fast preview. Portrait tablets retain their own responsive overrides. Hero
+scroll space already matched the original and remains unchanged. Game motion
+now begins 0.2 viewport heights before stage arrival instead of 0.4, allowing
+visitors to see the opening poses before the later effects develop. Every
+original authored pose still plays in sequence and reverses on upward scrolling.
+
+Scroll-pose smoothing is 45ms, between the original 65ms and fast preview's 28ms.
+About/inner-page entrances are 750ms instead of 450ms; artwork remains at least
+85% opaque during the entrance. This changes the presentation without withholding
+loaded images. Asset URLs, image variants/priorities, preload distances, sequence
+cache limits and protected milestones are unchanged from the fast preview.
+
+Earlier timing/scroll-distance and lab measurements above describe their named
+preview revisions. They are historical comparisons, not measurements of this
+balanced timing adjustment.
+
+
+Balanced timing validation: production build/TypeScript, full `npm run check`
+and changed-file lint passed. Browser checks at phone 390×844 DPR 3, tablet
+820×1180 DPR 2 and desktop 1440×900 DPR 1 confirmed the section heights, loaded
+hero/game/About images, forward/reverse scene seeks including Chaos endpoints,
+visible About entrances, reduced-motion fallback, rotation, no horizontal
+overflow and zero JavaScript errors. This timing change does not modify any
+artwork files or the preload/sequence-rendering implementation.

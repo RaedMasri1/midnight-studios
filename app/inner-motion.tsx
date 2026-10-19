@@ -29,7 +29,7 @@ export function useInnerMotion() {
             const animation = el.animate([
               { opacity: .85, transform: `translate3d(0,${media ? 20 : 14}px,0) scale(${media ? .985 : 1})` },
               { opacity: 1, transform: 'translate3d(0,0,0) scale(1)' },
-            ], { duration: 450, delay: Math.min(80, Number(el.dataset.pageDelay ?? 0)), easing: 'cubic-bezier(.16,1,.3,1)' });
+            ], { duration: 750, delay: Math.min(80, Number(el.dataset.pageDelay ?? 0)), easing: 'cubic-bezier(.16,1,.3,1)' });
             animations.add(animation);
             animation.onfinish = () => { animation.cancel(); animations.delete(animation); };
           }

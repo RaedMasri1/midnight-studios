@@ -35,8 +35,8 @@
  .scene[data-game-scene] [data-scene-meta]{width:calc(100% - 64px);bottom:22px}
 }
 @media(max-width:700px){
- .scene[data-game-scene][data-pinned=true]{height:160svh}
- .scene[data-game-scene=jump][data-pinned=true]{height:145svh}
+ .scene[data-game-scene][data-pinned=true]{height:200svh}
+ .scene[data-game-scene=jump][data-pinned=true]{height:175svh}
  .scene[data-game-scene] [data-stage],.scene[data-game-scene][data-pinned=true] [data-stage]{padding:94px 0 58px}
  .scene[data-game-scene] [data-scene-layout]{width:calc(100% - 40px);gap:20px}
  .scene[data-game-scene] [data-scene-copy] h2{font-size:clamp(2.45rem,9vw,3.4rem);line-height:1.04}

@@ -1,8 +1,8 @@
 .chapter{position:relative;--world-progress:1;--world-enter:1;--heel-y:20.5cqw;--heel-turn:0deg;--heel-shadow:.56;--break-a:1;--break-b:1;--break-c:1;--district-rise:0%;--district-scale:1;--question-y:-12cqw;--question-turn:6deg;--ring-turn:82deg;--ring-opacity:.25;--answer-phase:1;--player-phase:1;--tile-reveal:1;--chaos-frame:1;--chaos-glow:1;isolation:isolate}
 .heel{background:#fce0e4;color:#281d28;color-scheme:light}.trivia{background:#ddf4ff;color:#142b4a;color-scheme:light}.chaos{background:#071120;color:#f8fbff;color-scheme:dark}
 .stage{position:relative;min-height:760px;overflow:hidden;isolation:isolate;display:flex;align-items:center;padding:90px 0 76px}
-.chapter[data-pinned=true]{height:160svh}.chapter[data-pinned=true] .stage{position:sticky;top:0;height:100svh;min-height:0}
-.trivia[data-pinned=true]{height:160svh}.chaos[data-pinned=true]{height:160svh}
+.chapter[data-pinned=true]{height:210svh}.chapter[data-pinned=true] .stage{position:sticky;top:0;height:100svh;min-height:0}
+.trivia[data-pinned=true]{height:200svh}.chaos[data-pinned=true]{height:230svh}
 .layout{width:min(1540px,calc(100% - 112px));display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.8fr);gap:1%;align-items:center;position:relative;z-index:2}
 .copy{position:relative;z-index:5;max-width:420px;padding-bottom:25px}
 .comingSoon{display:inline-flex;align-items:center;gap:9px;border:1px solid #6f485326;border-radius:40px;background:#fff7;padding:8px 15px;font-size:.75rem;line-height:1.2;letter-spacing:.015em;margin-bottom:27px}
@@ -80,7 +80,7 @@
  .visual,.trivia .visual,.chaos .visual{grid-column:1;grid-row:2;margin:0;align-self:stretch;min-height:0}.art{width:100%;max-width:min(100%,calc((100svh - 340px)*1.35));align-self:center}
  .trivia .art{max-width:min(100%,calc((100svh - 340px)*var(--trivia-aspect)))}
  .chaos .art{max-width:min(110%,calc((100svh - 330px)*1.375));width:110%}.bottom{bottom:20px;width:calc(100% - 40px);gap:14px;font-size:.56rem}.phaseLabels{font-size:.63rem}.rail{width:45px;flex-shrink:0}
- .heel[data-pinned=true]{height:160svh}.trivia[data-pinned=true]{height:160svh}.chaos[data-pinned=true]{height:160svh}
+ .heel[data-pinned=true]{height:200svh}.trivia[data-pinned=true]{height:200svh}.chaos[data-pinned=true]{height:220svh}
 }
 @media(max-width:850px){.answerLabel{font-size:3.3cqw;gap:1.2cqw;padding-inline:2.2cqw}.answerLabel b{font-size:2.4cqw}.topicName{font-size:2.35cqw}}
 @media(max-width:400px){.genre{font-size:.6rem;margin-left:8px}.copy h2{font-size:2.6rem}.headline{font-size:.94rem}.bottom>p{max-width:24ch}.phaseLabels{max-width:15ch;text-align:right}.rail{display:none}}

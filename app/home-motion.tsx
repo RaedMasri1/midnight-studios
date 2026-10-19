@@ -116,7 +116,7 @@ export function HomeMotion() {
       if (!enabled || document.hidden || disposed) return;
       const dt = previousTime ? Math.min(time - previousTime, 64) : 16;
       previousTime = time;
-      const alpha = 1 - Math.exp(-dt / 28);
+      const alpha = 1 - Math.exp(-dt / 45);
       // Read before writing; never update React state for a scroll frame.
       const reads = [...visible].map(el => ({ el, rect: el.getBoundingClientRect() }));
       let unsettled = false;
