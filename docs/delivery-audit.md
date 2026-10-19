@@ -36,12 +36,12 @@
 | just-jump-tablet-caves-768.webp | 54.6 KiB | Stored asset size |
 | Idle Chaos desktop sequence | 5270.5 KiB | 96 frames, fetched near the chapter |
 | Idle Chaos mobile sequence | 2098.8 KiB | 96 alternative smaller frames |
-| Home entry scripts, including legacy polyfill | 204.8 KiB | Scripts referenced in home HTML |
-| Home modern entry scripts | 166.3 KiB | Excludes nomodule polyfill |
-| Public route scripts combined | 215.6 KiB | Unique scripts referenced by public HTML; excludes admin |
+| Home entry scripts, including legacy polyfill | 205.6 KiB | Scripts referenced in home HTML |
+| Home modern entry scripts | 167.0 KiB | Excludes nomodule polyfill |
+| Public route scripts combined | 216.4 KiB | Unique scripts referenced by public HTML; excludes admin |
 | Admin-only entry scripts | 96.0 KiB | Only loaded at /admin |
-| All generated JavaScript | 414.0 KiB | 33 files across all routes |
-| All generated CSS | 40.7 KiB | 5 files |
+| All generated JavaScript | 414.8 KiB | 33 files across all routes |
+| All generated CSS | 40.8 KiB | 5 files |
 
 These are gzip estimates and stored asset bytes, not load times, measured FPS or field Core Web Vitals. Home scripts exclude HTML/RSC payloads, images and fonts. All-route JavaScript is not the initial download.
 

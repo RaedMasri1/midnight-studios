@@ -1,12 +1,23 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {chapterProgress,cinematicPose,craftStage,jumpProgress,heroProgress,heroFollow} from '../lib/cinematic-motion.ts';
+import {chapterProgress,gameProgress,cinematicPose,craftStage,jumpProgress,heroProgress,heroFollow} from '../lib/cinematic-motion.ts';
 for(const viewport of [480,589,600,620,740,844,900,1080]){
  const height=viewport*2.8;
  assert.equal(chapterProgress(0,height,viewport,true),0);
  assert.equal(chapterProgress(-(height-viewport),height,viewport,true),1);
  assert.equal(chapterProgress(viewport,height,viewport,false),0);
  assert.equal(chapterProgress(-height,height,viewport,false),1);
+}
+// Game motion is already advancing when the art arrives. It remains bounded,
+// reaches the complete scene at release, and reverses on the same scroll path.
+for(const viewport of [480,620,844,900,1180])for(const height of [viewport*1.6,viewport*2]){
+ assert.equal(gameProgress(viewport,height,viewport),0);
+ assert(gameProgress(0,height,viewport)>0);
+ assert.equal(gameProgress(-(height-viewport),height,viewport),1);
+ const positions=Array.from({length:201},(_,i)=>viewport-(height+viewport)*i/200);
+ const forward=positions.map(top=>gameProgress(top,height,viewport));
+ assert.deepEqual(forward,[...positions].reverse().map(top=>gameProgress(top,height,viewport)).reverse());
+ assert(forward.every((p,i)=>p>=0&&p<=1&&(!i||p>=forward[i-1])));
 }
 for(const kind of ['hero','jump','dream','craft','journal','footer','heel','trivia','chaos']){
  const poses=Array.from({length:201},(_,i)=>i/200);

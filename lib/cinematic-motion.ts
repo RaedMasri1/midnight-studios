@@ -8,6 +8,11 @@ export function chapterProgress(top: number, height: number, viewport: number, p
   // A pinned chapter starts only once its stage has arrived, not during entry.
   return pinned ? clamp(-top / Math.max(1, height - viewport)) : clamp((viewport * .85 - top) / Math.max(1, height + viewport * .35));
 }
+/** Start a game while its artwork enters, rather than waiting for the whole stage. */
+export function gameProgress(top: number, height: number, viewport: number) {
+  const entry = viewport * .4;
+  return clamp((entry - top) / Math.max(1, height - viewport + entry));
+}
 export function craftStage(progress: number) { return progress < .34 ? 0 : progress < .7 ? 1 : 2; }
 export function jumpProgress(top: number, height: number, viewport: number, pinned = false) {
   // Start gently on entry and keep most travel for the fully visible stage.

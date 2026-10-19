@@ -68,7 +68,11 @@ export function frameWindow(target: number, count: number, direction = 1, lookah
 export class DecodedFrameCache<T extends { close?: () => void }> {
   private frames = new Map<number, T>();
   readonly limit: number;
-  constructor(limit = 12) { if (!Number.isInteger(limit) || limit < 1) throw new Error('Frame cache limit must be positive'); this.limit = limit; }
+  readonly protectedFrames: ReadonlySet<number>;
+  constructor(limit = 12, protectedFrames: ReadonlySet<number> = new Set()) {
+    if (!Number.isInteger(limit) || limit < 1 || protectedFrames.size >= limit) throw new Error('Frame cache needs room for a moving frame');
+    this.limit = limit; this.protectedFrames = protectedFrames;
+  }
   get size() { return this.frames.size; }
   has(index: number) { return this.frames.has(index); }
   get(index: number) { return this.frames.get(index); }
@@ -78,7 +82,7 @@ export class DecodedFrameCache<T extends { close?: () => void }> {
     this.frames.set(index, frame);
     while (this.frames.size > this.limit) {
       let farthest = index, distance = -1;
-      for (const candidate of this.frames.keys()) if (candidate !== target && Math.abs(candidate - target) > distance) { farthest = candidate; distance = Math.abs(candidate - target); }
+      for (const candidate of this.frames.keys()) if (candidate !== target && !this.protectedFrames.has(candidate) && Math.abs(candidate - target) > distance) { farthest = candidate; distance = Math.abs(candidate - target); }
       this.frames.get(farthest)?.close?.(); this.frames.delete(farthest);
     }
   }

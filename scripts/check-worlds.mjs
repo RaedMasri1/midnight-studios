@@ -74,6 +74,13 @@ assert.equal(closed,84);assert(cache.has(95));assert.equal(closestFrame(90,cache
 cache.set(0,{close(){closed++;}},0);assert(cache.has(0));assert.equal(cache.size,12);
 cache.clear();assert.equal(cache.size,0);assert.equal(closed,97);
 assert.throws(()=>new DecodedFrameCache(0));
+// Rapid seeks must retain a representative of every phase without exceeding
+// the decoded-memory cap, so the end storm cannot be evicted by the calm intro.
+const anchors=new Set([0,24,48,71,95]),buffer=new DecodedFrameCache(8,anchors);
+for(const index of anchors)buffer.set(index,{},index);
+for(let index=1;index<95;index++){buffer.set(index,{},index);assert(buffer.size<=8);for(const anchor of anchors)assert(buffer.has(anchor));}
+assert.equal(closestFrame(95,buffer.keys()),95);
+assert.throws(()=>new DecodedFrameCache(5,anchors));
 assert.deepEqual(frameWindow(0,96),[0,1,2,3,4,5]);assert.deepEqual(frameWindow(95,96,-1),[95,94,93,92,91,90]);
 // The shipped continuous render has every frame and an independent mobile set.
 const manifest=JSON.parse(fs.readFileSync('public/assets/idle-chaos-frames/scene.json','utf8'));

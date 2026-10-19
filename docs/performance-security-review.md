@@ -82,3 +82,65 @@ Cloudflare preview/production configuration, and physical phones were not
 independently audited. No database migration or Edge Function redeployment is
 required for this change. Rebuild/deploy the branch to review it, then merge
 to publish the tested code.
+
+
+## Follow-up after the first preview
+
+The first preview did not adequately address the delay in the other game scenes.
+This pass compares against that preview, rather than treating the original image
+byte savings as a whole-site speed result.
+
+- Just Jump's pinned travel is another 30% shorter on desktop and 35.7% shorter
+  on phones. Dreamward, Tadri, Heel and Chaos now use 160svh sections: 40% less
+  pinned travel on phones; 36.8–50% less on desktop than the first preview.
+- Dreamward and the three upcoming games advance while their artwork enters the
+  viewport. At stage arrival they are already 40% through their timeline. The
+  cover still opens before the paper layers unfold, and all original authored
+  poses remain available when scrolling forward or backward. The first Dreamward
+  paper layer starts after about 84px of pinned phone scrolling, previously
+  422px. This removes waiting caused by scroll timing, independent of downloads.
+- Input smoothing is 28ms instead of 65ms, reducing the extra catch-up after a
+  swipe. Hero motion choreography remains unchanged.
+- The nearby-art observer preloads and decodes Dreamward, category and player
+  sprite sheets before a reveal. Their original CSS rendering, including the
+  repeating book texture, is retained. Smaller delivery copies serve DPR-1
+  displays; higher densities retain the original sheets. Original images are
+  unchanged. A responsive heel-shoe image and removal of the permanently hidden duplicate district prevent wasted bytes.
+- Heel fragments and trivia card positions use their original transforms on
+  their own elements. Shared animation variables are scoped to their consumers.
+  This avoids invalidating every cube face on every animation tick.
+- Five Chaos milestone frames are prioritized and protected within the existing
+  12/24-frame decoded-memory cap. The final storm remains ready during a rapid
+  seek; all 96 frames are still available, and buffers still release offscreen.
+
+Local Chromium production-export tests used gzip responses, a 1.6 Mbps download
+limit, 150ms latency, 4× CPU throttling, fresh browser contexts, and 2-second
+scripted sweeps of every game. These are lab conditions, not physical-device or
+CDN measurements. The earlier uncompressed diagnostic run is not used below.
+
+| Measurement | First preview | Follow-up |
+| --- | ---: | ---: |
+| Heel style recalculation, phone sweep | 1,192ms | 121ms |
+| Heel style recalculation, desktop sweep | 1,172ms | 153ms |
+| Tadri style recalculation, phone sweep | 605ms | 284ms |
+| Tadri style recalculation, desktop sweep | 673ms | 356ms |
+| Phone p95 frame interval, each of five game sweeps | 16.7–33.4ms | 16.7–16.8ms |
+
+Phone test viewport: 390×844 at DPR 3. Desktop: 1440×900 at DPR 1. In this
+follow-up run the game image elements and sprite sheets were downloaded before
+their tested scene entry; Chaos reached frame 95 after the rapid sweep on both
+viewports. Desktop Heel still showed a p95 frame interval around 33ms under
+4× CPU throttling. The other four desktop sweeps were around 17ms. Shorter scroll travel and earlier reveals do not guarantee 60fps on
+all devices. Initial-load timings are sensitive to request ordering and cache
+state and are not presented as a field speed score.
+
+
+Follow-up validation: production build/TypeScript, full `npm run check`, and
+changed-file lint passed (zero errors, three existing image-element warnings).
+Phone/tablet/desktop browser tests passed forward/reverse Chaos seeks, resize and
+rotation, reduced motion, About image completion, no horizontal overflow, zero
+JavaScript errors and the configured anti-framing policy. Visual comparisons of
+Dreamward, Tadri and Heel at two matching authored poses across all three
+viewports retained their layouts and artwork. CSS sprite rendering was retained
+to preserve texture repetition and sharpness; a no-JavaScript browser check also
+confirmed the artwork fallback. Original source image files remain unchanged.

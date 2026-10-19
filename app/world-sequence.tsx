@@ -16,7 +16,11 @@ export function WorldSequence({ source, sectionId }: { source: SequenceSource; s
     if (!ctx) return;
     // Decoded pixels, not compressed file size, determine memory use.
     // Mobile frames are smaller; keep a longer runway within the same budget.
-    let cache = new DecodedFrameCache<Frame>(narrow.matches ? 24 : 12);
+    // Preserve one ready frame per phase, including the final storm, inside the
+    // existing memory cap. A fast seek can show that phase without waiting for
+    // dozens of intervening downloads on a slow connection.
+    const anchors = new Set([0, .25, .5, .75, 1].map(p => sequenceFrame(p, source.count)));
+    let cache = new DecodedFrameCache<Frame>(narrow.matches ? 24 : 12, anchors);
     const requests = new Map<number, AbortController>();
     let disposed = false, nearby = false, visible = false, target = 0, previous = 0, direction = 1;
     let queue: number[] = [], raf = 0, generation = 0;
@@ -65,8 +69,10 @@ export function WorldSequence({ source, sectionId }: { source: SequenceSource; s
       direction = target < previous ? -1 : target > previous ? 1 : direction;
       if (queuedTarget !== target) {
         queuedTarget = target;
-        queue = frameWindow(target, source.count, direction, narrow.matches ? 12 : 8).filter(i => !cache.has(i) && !requests.has(i));
-        for (const [index, controller] of requests) if (Math.abs(index - target) > 16) { controller.abort(); requests.delete(index); }
+        const milestones = [...anchors].sort((a, b) => Math.abs(a - target) - Math.abs(b - target));
+        const nearbyFrames = frameWindow(target, source.count, direction, narrow.matches ? 12 : 8).slice(0, cache.limit - anchors.size);
+        queue = [...new Set([target, ...milestones, ...nearbyFrames])].filter(i => !cache.has(i) && !requests.has(i));
+        for (const [index, controller] of requests) if (!anchors.has(index) && Math.abs(index - target) > 16) { controller.abort(); requests.delete(index); }
       }
       schedule(); pump();
     }
@@ -77,7 +83,7 @@ export function WorldSequence({ source, sectionId }: { source: SequenceSource; s
     }
     function mode() {
       release(); base = narrow.matches ? source.mobileBase : source.base;
-      cache = new DecodedFrameCache<Frame>(narrow.matches ? 24 : 12);
+      cache = new DecodedFrameCache<Frame>(narrow.matches ? 24 : 12, anchors);
       if (!reduced.matches && nearby) seek(parseFloat(getComputedStyle(section!).getPropertyValue('--chaos-frame')) || 0);
     }
     const resize = new ResizeObserver(entries => {

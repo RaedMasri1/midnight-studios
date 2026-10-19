@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useInnerMotion } from './inner-motion';
-import { chapterProgress, cinematicPose, craftStage, clamp, jumpProgress, heroProgress, heroFollow, type Chapter } from '@/lib/cinematic-motion';
+import { chapterProgress, gameProgress, cinematicPose, craftStage, clamp, jumpProgress, heroProgress, heroFollow, type Chapter } from '@/lib/cinematic-motion';
 import { triviaTilePose } from '@/lib/world-motion';
 
 /** Native scroll, batched DOM reads/writes and an on-demand interpolation loop. */
@@ -27,6 +27,27 @@ export function HomeMotion() {
     let measuredWidth = innerWidth, measuredHeight = innerHeight;
     let pointer = { x: 0, y: 0 };
     const hero = sections.find(s => s.dataset.cinematic === 'hero');
+    const heel = sections.find(s => s.dataset.cinematic === 'heel');
+    // Read the authored fragment vectors once. A transform on the fragment does
+    // not make all six faces recalculate inherited CSS variables on every tick.
+    const fragments = [...(heel?.querySelectorAll<HTMLElement>('[data-heel-fragment]') ?? [])].map(el => ({
+      el, level: Number(el.dataset.heelFragment),
+      vector: ['--px', '--py', '--pz', '--dx', '--dy', '--dz', '--spin'].map(key => parseFloat(el.style.getPropertyValue(key))),
+    }));
+    const scopedTargets = new Map<HTMLElement, Map<string, HTMLElement[]>>();
+    const triviaTargets: Record<string, string> = {
+      '--question-y': '[data-trivia-question]', '--question-turn': '[data-trivia-question]',
+      '--ring-turn': '[data-trivia-rings]', '--ring-opacity': '[data-trivia-rings]',
+      '--answer-phase': '[data-trivia-tile]', '--tile-reveal': '[data-trivia-tile]',
+      '--topic-icon-opacity': '[data-trivia-icon]', '--answer-label-opacity': '[data-trivia-answer]',
+      '--player-phase': '[data-player-avatar], [data-trivia-spark]',
+    };
+    function targets(el: HTMLElement, key: string, selector: string) {
+      if (!scopedTargets.has(el)) scopedTargets.set(el, new Map());
+      const cache = scopedTargets.get(el)!;
+      if (!cache.has(key)) cache.set(key, [...el.querySelectorAll<HTMLElement>(selector)]);
+      return cache.get(key)!;
+    }
     let heroStageHeight = 0;
     function write(el: HTMLElement, key: string, value: string) {
       if (lastValues.get(el)?.get(key) === value) return;
@@ -46,18 +67,37 @@ export function HomeMotion() {
       if (el.dataset.cinematic === 'jump') return jumpProgress(rect.top, rect.height, innerHeight, el.dataset.pinned === 'true');
       if (el.dataset.cinematic === 'footer') return clamp((innerHeight - rect.top) / Math.max(1, Math.min(rect.height, innerHeight * .85)));
       if (el === hero) return heroProgress(rect.top, rect.height);
+      if (el.dataset.pinned === 'true' && ['dream', 'heel', 'trivia', 'chaos'].includes(el.dataset.cinematic!)) return gameProgress(rect.top, rect.height, innerHeight);
       // Short-window fallbacks also hold the book/studio at the first pose on entry.
       if (['dream', 'craft'].includes(el.dataset.cinematic!) && el.dataset.pinned !== 'true') return clamp(-rect.top / Math.max(rect.height * .75, innerHeight * .8));
       return chapterProgress(rect.top, rect.height, innerHeight, el.dataset.pinned === 'true');
     }
     function pose(el: HTMLElement, p: number, follow = 0) {
       const values = cinematicPose(el.dataset.cinematic as Chapter, p);
-      for (const [key, value] of Object.entries(values)) write(el, key, value);
+      const isWorld = ['heel', 'trivia', 'chaos'].includes(el.dataset.cinematic!);
+      for (const [key, value] of Object.entries(values)) {
+        if (isWorld && key === '--world-enter') continue; // No rendered consumer.
+        if (isWorld && key === '--world-progress') { targets(el, key, '[data-world-rail]').forEach(node => write(node, key, value)); continue; }
+        if (el === heel) {
+          if (key.startsWith('--break-') || key.startsWith('--district-')) continue;
+          targets(el, key, key === '--heel-shadow' ? '[data-heel-shadow]' : '[data-heel-shoe]').forEach(node => write(node, key, value));
+        } else if (el.dataset.cinematic === 'trivia' && triviaTargets[key]) {
+          targets(el, key, triviaTargets[key]).forEach(node => write(node, key, value));
+        } else write(el, key, value);
+      }
+      if (el === heel) for (const { el: fragment, level, vector: [px, py, pz, dx, dy, dz, spin] } of fragments) {
+        const b = Number(values[`--break-${['a', 'b', 'c'][level]}`]);
+        const n = (v: number) => v.toFixed(5);
+        write(fragment, 'transform', `translate3d(${n(px + b * dx)}cqw,${n(py + b * dy - Math.sin(b * Math.PI) * 8)}cqw,${n(pz + b * dz)}cqw) rotateX(${n(b * spin)}deg) rotateY(${n(b * spin * .7)}deg) rotateZ(${n(b * spin * .55)}deg)`);
+      }
       if (el === hero) write(el, '--hero-follow-y', `${follow.toFixed(3)}px`);
-      if (['heel', 'trivia', 'chaos'].includes(el.dataset.cinematic!)) el.dataset.worldPhase = String(Math.min(2, Math.floor(p * 3)));
-      if (el.dataset.cinematic === 'trivia') el.querySelectorAll<HTMLElement>('[data-trivia-tile]').forEach((tile, i) => {
+      if (isWorld) {
+        const phase = String(Math.min(2, Math.floor(p * 3)));
+        if (el.dataset.worldPhase !== phase) el.dataset.worldPhase = phase;
+      }
+      if (el.dataset.cinematic === 'trivia') targets(el, 'tiles', '[data-trivia-tile]').forEach((tile, i) => {
         const tilePose = triviaTilePose(i, p);
-        for (const [name, value] of Object.entries(tilePose)) write(tile, `--tile-${name}`, `${value.toFixed(5)}${name === 'turn' || name === 'yaw' ? 'deg' : name === 'z' ? 'px' : 'cqw'}`);
+        write(tile, 'transform', `translate3d(${tilePose.x.toFixed(5)}cqw,${tilePose.y.toFixed(5)}cqw,${tilePose.z.toFixed(5)}px) rotateZ(${tilePose.turn.toFixed(5)}deg) rotateY(${tilePose.yaw.toFixed(5)}deg)`);
       });
       if (el.dataset.cinematic === 'chaos') el.dispatchEvent(new CustomEvent<number>('world-progress', { detail: parseFloat(values['--chaos-frame']) }));
       if (el.dataset.cinematic === 'craft') {
@@ -76,13 +116,14 @@ export function HomeMotion() {
       if (!enabled || document.hidden || disposed) return;
       const dt = previousTime ? Math.min(time - previousTime, 64) : 16;
       previousTime = time;
-      const alpha = 1 - Math.exp(-dt / 65);
+      const alpha = 1 - Math.exp(-dt / 28);
       // Read before writing; never update React state for a scroll frame.
       const reads = [...visible].map(el => ({ el, rect: el.getBoundingClientRect() }));
       let unsettled = false;
       const light = lightSections.some(el => { const rect = el.getBoundingClientRect(); return rect.top <= 55 && rect.bottom > 55; });
       for (const { el, rect } of reads) {
-        el.dataset.inView = String(rect.top < innerHeight && rect.bottom > 0);
+        const inView = String(rect.top < innerHeight && rect.bottom > 0);
+        if (el.dataset.inView !== inView) el.dataset.inView = inView;
         if (el.dataset.cinematic === 'craft') el.dataset.craftEntered = String(rect.top < innerHeight * .28 && rect.bottom > 0);
         const target = progress(el, rect);
         const old = current.get(el) ?? target;
@@ -190,15 +231,22 @@ export function HomeMotion() {
       if (changed && !resizeRaf) resizeRaf = requestAnimationFrame(() => { resizeRaf = 0; reset(); });
     });
     document.querySelectorAll('[data-hero-copy], [data-fit-content]').forEach(el => contentObserver.observe(el));
-    // Wake the next chapter's lazy artwork before its sticky stage arrives.
-    // Farther chapters keep native lazy loading and cannot compete with the hero.
+    // Prepare background sprites even while their scroll pose is transparent.
+    // Keep their original CSS rendering, including the repeating book texture.
+    const spriteSheets: Record<string, string[]> = { dream: ['dream-cutouts'], trivia: ['trivia-icons', 'tadri-players'] };
     const artworkObserver = new IntersectionObserver(entries => {
       for (const entry of entries) if (entry.isIntersecting) {
         entry.target.querySelectorAll<HTMLImageElement>('img[loading="lazy"]').forEach(img => { img.loading = 'eager'; });
+        for (const name of spriteSheets[(entry.target as HTMLElement).dataset.cinematic!] ?? []) {
+          const img = new Image();
+          img.srcset = `/assets/${name}-small.webp 1x, /assets/${name}.webp 2x`;
+          img.src = `/assets/${name}.webp`;
+          img.decode().catch(() => { /* CSS keeps the original fallback if unavailable. */ });
+        }
         artworkObserver.unobserve(entry.target);
       }
     }, { rootMargin: `${Math.round(innerHeight * 1.5)}px 0px` });
-    sections.filter(el => el.querySelector('img[loading="lazy"]')).forEach(el => artworkObserver.observe(el));
+    sections.filter(el => spriteSheets[el.dataset.cinematic!] || el.querySelector('img[loading="lazy"]')).forEach(el => artworkObserver.observe(el));
     document.fonts.ready.then(() => { if (!disposed) reset(); });
     return () => {
       disposed = true; enabled = false; observer?.disconnect(); cancelAnimationFrame(raf); cancelAnimationFrame(resizeRaf);
