@@ -60,8 +60,9 @@ export function closestFrame(target: number, available: Iterable<number>) {
   for (const frame of available) if (Math.abs(frame - target) < distance) { best = frame; distance = Math.abs(frame - target); }
   return best;
 }
-export function frameWindow(target: number, count: number, direction = 1) {
+export function frameWindow(target: number, count: number, direction = 1, lookahead = 5) {
   const offsets = direction < 0 ? [0, -1, -2, 1, -3, 2, -4, -5] : [0, 1, 2, -1, 3, -2, 4, 5];
+  for (let i = 6; i <= Math.min(16, lookahead); i++) offsets.push(i * direction);
   return offsets.map(i => target + i).filter(i => i >= 0 && i < count);
 }
 export class DecodedFrameCache<T extends { close?: () => void }> {

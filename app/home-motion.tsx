@@ -14,6 +14,7 @@ export function HomeMotion() {
     const lightSections = [...document.querySelectorAll<HTMLElement>('[data-theme=light]')];
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const fine = matchMedia('(hover: hover) and (pointer: fine)');
+    const coarse = matchMedia('(pointer: coarse)');
     const header = document.querySelector<HTMLElement>('.site-header');
     header?.classList.add('home-masthead');
     let enabled = false, raf = 0, resizeRaf = 0, previousTime = 0, disposed = false;
@@ -22,10 +23,15 @@ export function HomeMotion() {
     const current = new Map<HTMLElement, number>();
     const written = new Map<HTMLElement, Set<string>>();
     const originals = new Map<HTMLElement, Map<string, string>>();
+    const lastValues = new Map<HTMLElement, Map<string, string>>();
+    let measuredWidth = innerWidth, measuredHeight = innerHeight;
     let pointer = { x: 0, y: 0 };
     const hero = sections.find(s => s.dataset.cinematic === 'hero');
     let heroStageHeight = 0;
     function write(el: HTMLElement, key: string, value: string) {
+      if (lastValues.get(el)?.get(key) === value) return;
+      if (!lastValues.has(el)) lastValues.set(el, new Map());
+      lastValues.get(el)!.set(key, value);
       if (!originals.has(el)) originals.set(el, new Map());
       if (!originals.get(el)!.has(key)) originals.get(el)!.set(key, el.style.getPropertyValue(key));
       el.style.setProperty(key, value);
@@ -34,7 +40,7 @@ export function HomeMotion() {
     }
     function restore() {
       originals.forEach((values, el) => values.forEach((value, key) => { if (value) el.style.setProperty(key, value); else el.style.removeProperty(key); }));
-      originals.clear(); written.clear();
+      originals.clear(); written.clear(); lastValues.clear();
     }
     function progress(el: HTMLElement, rect: DOMRect) {
       if (el.dataset.cinematic === 'jump') return jumpProgress(rect.top, rect.height, innerHeight, el.dataset.pinned === 'true');
@@ -140,7 +146,14 @@ export function HomeMotion() {
       }, { rootMargin: '20% 0px', threshold: 0 });
       sections.forEach(el => observer!.observe(el));
     }
-    function resize() { if (!resizeRaf) resizeRaf = requestAnimationFrame(() => { resizeRaf = 0; reset(); }); }
+    function resize() {
+      // Mobile toolbar changes do not change the authored 100svh stage. Avoid
+      // rebuilding all observers and poses during each toolbar movement.
+      const toolbarOnly = coarse.matches && innerWidth === measuredWidth && (innerHeight >= 480) === (measuredHeight >= 480);
+      measuredWidth = innerWidth; measuredHeight = innerHeight;
+      if (toolbarOnly) { schedule(); return; }
+      if (!resizeRaf) resizeRaf = requestAnimationFrame(() => { resizeRaf = 0; reset(); });
+    }
     function visibility() { if (document.hidden) { cancelAnimationFrame(raf); raf = 0; sections.forEach(el => { el.dataset.inView = 'false'; }); } else schedule(); }
     function move(e: PointerEvent) {
       if (!enabled || !fine.matches || !hero || !visible.has(hero)) return;
@@ -164,9 +177,29 @@ export function HomeMotion() {
     document.addEventListener('focusin', focus); document.addEventListener('focusout', blur);
     reduced.addEventListener('change', reset);
     hero?.addEventListener('pointermove', move, { passive: true }); hero?.addEventListener('pointerleave', leave);
-    const images = sections.flatMap(el => [...el.querySelectorAll('img')]);
-    images.forEach(img => img.addEventListener('load', resize));
-    document.fonts.ready.then(() => { if (!disposed) resize(); });
+    // Images already reserve their dimensions. Only readable-content size can
+    // change whether a stage fits; an image finishing must not reset all scenes.
+    const contentSizes = new WeakMap<Element, number>();
+    const contentObserver = new ResizeObserver(entries => {
+      let changed = false;
+      for (const entry of entries) {
+        const old = contentSizes.get(entry.target), height = entry.contentRect.height;
+        if (old !== undefined && Math.abs(old - height) > 1) changed = true;
+        contentSizes.set(entry.target, height);
+      }
+      if (changed && !resizeRaf) resizeRaf = requestAnimationFrame(() => { resizeRaf = 0; reset(); });
+    });
+    document.querySelectorAll('[data-hero-copy], [data-fit-content]').forEach(el => contentObserver.observe(el));
+    // Wake the next chapter's lazy artwork before its sticky stage arrives.
+    // Farther chapters keep native lazy loading and cannot compete with the hero.
+    const artworkObserver = new IntersectionObserver(entries => {
+      for (const entry of entries) if (entry.isIntersecting) {
+        entry.target.querySelectorAll<HTMLImageElement>('img[loading="lazy"]').forEach(img => { img.loading = 'eager'; });
+        artworkObserver.unobserve(entry.target);
+      }
+    }, { rootMargin: `${Math.round(innerHeight * 1.5)}px 0px` });
+    sections.filter(el => el.querySelector('img[loading="lazy"]')).forEach(el => artworkObserver.observe(el));
+    document.fonts.ready.then(() => { if (!disposed) reset(); });
     return () => {
       disposed = true; enabled = false; observer?.disconnect(); cancelAnimationFrame(raf); cancelAnimationFrame(resizeRaf);
       restore();
@@ -176,7 +209,8 @@ export function HomeMotion() {
       document.removeEventListener('visibilitychange', visibility); document.removeEventListener('focusin', focus); document.removeEventListener('focusout', blur);
       reduced.removeEventListener('change', reset);
       hero?.removeEventListener('pointermove', move); hero?.removeEventListener('pointerleave', leave);
-      images.forEach(img => img.removeEventListener('load', resize));
+      contentObserver.disconnect();
+      artworkObserver.disconnect();
     };
   }, [pathname]);
   return null;

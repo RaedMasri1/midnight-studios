@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { studioArtProps } from '@/lib/studio-art';
 import type { ReactNode } from 'react';
 import { Header } from './studio';
 import { HomeMotion } from './home-motion';
@@ -17,10 +18,10 @@ export function TextLink({ href, children }: { href: string; children: ReactNode
 export function StudioComposition() {
   return <div className={styles.studioComposition} data-about-art role="img" aria-label="An orange puppy with a mesh half, a gray cat and separate sketch sheets on the studio floor.">
     <img className={styles.floor} src="/assets/studio-floor.webp" width="1672" height="941" alt="" loading="eager" decoding="async" />
-    <div className={styles.sketch} data-page-reveal><img src="/assets/studio-sketch.webp" width="1536" height="1024" alt="" loading="eager" decoding="async" /></div>
-    <div className={styles.cat} data-about-cat data-page-reveal data-page-delay="160"><img src="/assets/studio-cat.webp" width="1191" height="1321" alt="" loading="eager" decoding="async" /></div>
-    <div className={styles.dog} data-about-dog data-page-reveal data-page-delay="80"><img src="/assets/studio-dog.webp" width="1161" height="1354" alt="" loading="eager" decoding="async" /></div>
-    <div className={styles.tools} data-page-reveal data-page-delay="230"><img src="/assets/studio-tools.webp" width="1536" height="1024" alt="" loading="eager" decoding="async" /></div>
+    <div className={styles.sketch} data-page-reveal><img src="/assets/studio-sketch.webp" {...studioArtProps("/assets/studio-sketch.webp", "(max-width: 700px) 51vw, 30vw")} width="1536" height="1024" alt="" loading="eager" decoding="async" /></div>
+    <div className={styles.cat} data-about-cat data-page-reveal data-page-delay="160"><img src="/assets/studio-cat.webp" {...studioArtProps("/assets/studio-cat.webp", "(max-width: 700px) 32vw, 25vw")} width="1191" height="1321" alt="" loading="eager" decoding="async" /></div>
+    <div className={styles.dog} data-about-dog data-page-reveal data-page-delay="80"><img src="/assets/studio-dog.webp" {...studioArtProps("/assets/studio-dog.webp", "(max-width: 700px) 32vw, 25vw")} fetchPriority="high" width="1161" height="1354" alt="" loading="eager" decoding="async" /></div>
+    <div className={styles.tools} data-page-reveal data-page-delay="230"><img src="/assets/studio-tools.webp" {...studioArtProps("/assets/studio-tools.webp", "(max-width: 700px) 51vw, 30vw")} width="1536" height="1024" alt="" loading="eager" decoding="async" /></div>
   </div>;
 }
 export function PortalArt({ defer = false }: { defer?: boolean }) {
