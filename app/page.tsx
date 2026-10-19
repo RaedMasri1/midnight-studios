@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { studioArtProps } from '@/lib/studio-art';
 import type { CSSProperties } from 'react';
 import { Header, BrandArt, StudioPicture, getGameArtwork } from './studio';
 import { HomeMotion } from './home-motion';
@@ -54,7 +55,7 @@ export default function Home() {
             {home.hero.tabletEnvironment ? <source media="(max-width: 1100px), (max-width: 1400px) and (orientation: portrait)" srcSet={[...(home.hero.tabletEnvironment.variants ?? []), { src: home.hero.tabletEnvironment.src, width: home.hero.tabletEnvironment.width }].sort((a, b) => a.width - b.width).map(v => `${v.src} ${v.width}w`).join(', ')} sizes="100vw" width={home.hero.tabletEnvironment.width} height={home.hero.tabletEnvironment.height} /> : null}
             <img className={styles.portalEnvironment} src={home.hero.environment.src} srcSet={home.hero.environment.variants?.map(v => `${v.src} ${v.width}w`).concat(`${home.hero.environment.src} ${home.hero.environment.width}w`).join(', ')} sizes="100vw" width={home.hero.environment.width} height={home.hero.environment.height} alt="" fetchPriority="high" loading="eager" decoding="async" />
           </picture>
-          <img className={styles.portalCharacter} src={home.hero.character.src} width={home.hero.character.width} height={home.hero.character.height} alt="" loading="eager" decoding="async" />
+          <img className={styles.portalCharacter} src={home.hero.character.src} {...studioArtProps(home.hero.character.src, "(max-width: 700px) 31vw, (max-width: 1400px) and (orientation: portrait) 23vw, 17vw")} fetchPriority="high" width={home.hero.character.width} height={home.hero.character.height} alt="" loading="eager" decoding="async" />
         </div>
         <div className={styles.heroVignette} aria-hidden="true" />
         <div className={`wrap ${styles.heroInner}`} data-hero-inner>
@@ -83,10 +84,10 @@ export default function Home() {
       <div className={styles.studioScene} role="img" aria-label="From sketch to character: an orange puppy with a polygon mesh half, a gray cat, and separate drawing sheets on a white studio floor.">
         <div className={styles.studioObjects}>
         <div className={styles.characterShadow} aria-hidden="true" />
-        <img className={styles.studioSketch} src="/assets/studio-sketch.webp" width="1536" height="1024" sizes="(max-width: 700px) 65vw, 46vw" alt="" loading="lazy" decoding="async" />
-        <img className={styles.studioCat} src="/assets/studio-cat.webp" width="1191" height="1321" sizes="(max-width: 700px) 65vw, 46vw" alt="" loading="lazy" decoding="async" />
-        <img className={styles.studioDog} src="/assets/studio-dog.webp" width="1161" height="1354" sizes="(max-width: 700px) 65vw, 46vw" alt="" loading="lazy" decoding="async" />
-        <img className={styles.studioTools} src="/assets/studio-tools.webp" width="1536" height="1024" sizes="(max-width: 700px) 65vw, 46vw" alt="" loading="lazy" decoding="async" />
+        <img className={styles.studioSketch} src="/assets/studio-sketch.webp" {...studioArtProps("/assets/studio-sketch.webp", "(max-width: 700px) 43vw, 35vw")} width="1536" height="1024" alt="" loading="lazy" decoding="async" />
+        <img className={styles.studioCat} src="/assets/studio-cat.webp" {...studioArtProps("/assets/studio-cat.webp", "(max-width: 700px) 43vw, (max-width: 1100px) 31vw, 28vw")} width="1191" height="1321" alt="" loading="lazy" decoding="async" />
+        <img className={styles.studioDog} src="/assets/studio-dog.webp" {...studioArtProps("/assets/studio-dog.webp", "(max-width: 700px) 65vw, (max-width: 1100px) 46vw, 42vw")} width="1161" height="1354" alt="" loading="lazy" decoding="async" />
+        <img className={styles.studioTools} src="/assets/studio-tools.webp" {...studioArtProps("/assets/studio-tools.webp", "(max-width: 700px) 45vw, 35vw")} width="1536" height="1024" alt="" loading="lazy" decoding="async" />
         </div>
       </div>
       <div className={styles.studioHeading}><h2 id="studio-heading">{home.studio.title}</h2></div><div className={styles.studioSupport}><p>{home.studio.paragraphs.join(' ')}</p><Link prefetch={false} href="/about" className={styles.inlineLink}>{home.studio.linkLabel}<Arrow /></Link></div>

@@ -1,8 +1,8 @@
 .chapter{position:relative;--world-progress:1;--world-enter:1;--heel-y:20.5cqw;--heel-turn:0deg;--heel-shadow:.56;--break-a:1;--break-b:1;--break-c:1;--district-rise:0%;--district-scale:1;--question-y:-12cqw;--question-turn:6deg;--ring-turn:82deg;--ring-opacity:.25;--answer-phase:1;--player-phase:1;--tile-reveal:1;--chaos-frame:1;--chaos-glow:1;isolation:isolate}
 .heel{background:#fce0e4;color:#281d28;color-scheme:light}.trivia{background:#ddf4ff;color:#142b4a;color-scheme:light}.chaos{background:#071120;color:#f8fbff;color-scheme:dark}
 .stage{position:relative;min-height:760px;overflow:hidden;isolation:isolate;display:flex;align-items:center;padding:90px 0 76px}
-.chapter[data-pinned=true]{height:260svh}.chapter[data-pinned=true] .stage{position:sticky;top:0;height:100svh;min-height:0}
-.trivia[data-pinned=true]{height:240svh}.chaos[data-pinned=true]{height:300svh}
+.chapter[data-pinned=true]{height:210svh}.chapter[data-pinned=true] .stage{position:sticky;top:0;height:100svh;min-height:0}
+.trivia[data-pinned=true]{height:200svh}.chaos[data-pinned=true]{height:230svh}
 .layout{width:min(1540px,calc(100% - 112px));display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.8fr);gap:1%;align-items:center;position:relative;z-index:2}
 .copy{position:relative;z-index:5;max-width:420px;padding-bottom:25px}
 .comingSoon{display:inline-flex;align-items:center;gap:9px;border:1px solid #6f485326;border-radius:40px;background:#fff7;padding:8px 15px;font-size:.75rem;line-height:1.2;letter-spacing:.015em;margin-bottom:27px}
@@ -43,13 +43,13 @@
 .topic1{--tile-color:#ffda7b}.topic2{--tile-color:#9bdfa9}.topic3{--tile-color:#8ed8ee}
 .tileSide{position:absolute;inset:0;background:color-mix(in srgb,var(--tile-color),#244060 22%);border-radius:inherit;transform:translate3d(0,.65cqw,-.8cqw);box-shadow:0 1.4cqw 2.3cqw #3257831c,0 .35cqw .6cqw #32578319}
 .tileFace{position:absolute;inset:0;border-radius:inherit;background:linear-gradient(145deg,#ffffff57,#ffffff10 52%,#00000003),var(--tile-color);border:.15cqw solid #ffffffa3;box-shadow:inset 0 .22cqw .32cqw #ffffff90,inset 0 -.14cqw .25cqw #47628a12;backface-visibility:hidden;display:grid;place-items:center;transform:translateZ(.1cqw);overflow:hidden;isolation:isolate}
-.topicIcon{position:absolute;top:3%;left:50%;width:calc(18.4cqw - var(--answer-phase)*12cqw);aspect-ratio:1;display:block;background-image:url('/assets/trivia-icons.webp');background-size:200% 200%;background-position:var(--sprite-x) var(--sprite-y);background-repeat:no-repeat;opacity:var(--topic-icon-opacity,0);transform:translateX(-50%);filter:drop-shadow(0 .7cqw .5cqw #36527320)}
+.topicIcon{position:absolute;top:3%;left:50%;width:calc(18.4cqw - var(--answer-phase)*12cqw);aspect-ratio:1;display:block;background-image:image-set(url('/assets/trivia-icons-small.webp') 1x,url('/assets/trivia-icons.webp') 2x);background-size:200% 200%;background-position:var(--sprite-x) var(--sprite-y);background-repeat:no-repeat;opacity:var(--topic-icon-opacity,0);transform:translateX(-50%);filter:drop-shadow(0 .7cqw .5cqw #36527320)}
 .topicName{position:absolute;bottom:5%;font-size:2.05cqw;line-height:1.2;letter-spacing:-.015em;font-weight:650;color:#263b59;opacity:var(--topic-icon-opacity,0)}
 .answerLabel{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;gap:1.4cqw;padding:0 2.7cqw;font-size:2.8cqw;line-height:1.1;color:#20334f;font-weight:650;letter-spacing:-.035em;opacity:var(--answer-label-opacity,1);transform:translateY(calc((1 - var(--answer-phase))*2cqw));white-space:nowrap}
 .answerLabel b{width:4.6cqw;height:4.6cqw;flex-shrink:0;display:grid;place-items:center;font-size:2cqw;letter-spacing:0;font-weight:600;border:1px solid #ffffffb3;border-radius:1.35cqw;background:#ffffff55;box-shadow:0 .15cqw .3cqw #405c7d0d}
 .players{position:absolute;left:50%;top:var(--players-top);width:53cqw;height:var(--players-height);display:flex;align-items:flex-end;justify-content:space-between;transform:translateX(-50%);z-index:5}
 .player{position:relative;width:12cqw;height:var(--players-height);opacity:clamp(0,calc(var(--player-phase)*3 - var(--player)*.35),1);transform:translateY(calc((1 - var(--player-phase))*var(--player-rise)));filter:drop-shadow(0 .45cqw .45cqw #48638626)}
-.playerArt{position:absolute;bottom:0;left:50%;height:100%;aspect-ratio:543/724;transform:translateX(-50%);display:block;background-image:url('/assets/tadri-players.webp');background-size:400% 100%;background-position:var(--avatar-x) center;background-repeat:no-repeat}
+.playerArt{position:absolute;bottom:0;left:50%;height:100%;aspect-ratio:543/724;transform:translateX(-50%);display:block;background-image:image-set(url('/assets/tadri-players-small.webp') 1x,url('/assets/tadri-players.webp') 2x);background-size:400% 100%;background-position:var(--avatar-x) center;background-repeat:no-repeat}
 .sparkOne,.sparkTwo,.sparkThree{position:absolute;border-radius:50%;width:2cqw;height:2cqw;background:radial-gradient(circle at 30% 30%,#fff9,#fac448);box-shadow:.2cqw .3cqw .7cqw #7d85ac26;left:14%;top:38%;transform:translateY(calc(var(--player-phase)*-3cqw))}.sparkTwo{left:75%;top:12%;width:3cqw;height:3cqw}.sparkThree{left:86%;top:64%;background:radial-gradient(circle at 30% 30%,#fff9,#a88ff7)}
 .chaos .layout{grid-template-columns:minmax(260px,.76fr) minmax(0,1.9fr)}.chaos .visual{margin-right:-4%}
 .chaos .art{aspect-ratio:1.375;max-width:calc((100svh - 105px)*1.375)}
@@ -80,7 +80,7 @@
  .visual,.trivia .visual,.chaos .visual{grid-column:1;grid-row:2;margin:0;align-self:stretch;min-height:0}.art{width:100%;max-width:min(100%,calc((100svh - 340px)*1.35));align-self:center}
  .trivia .art{max-width:min(100%,calc((100svh - 340px)*var(--trivia-aspect)))}
  .chaos .art{max-width:min(110%,calc((100svh - 330px)*1.375));width:110%}.bottom{bottom:20px;width:calc(100% - 40px);gap:14px;font-size:.56rem}.phaseLabels{font-size:.63rem}.rail{width:45px;flex-shrink:0}
- .heel[data-pinned=true]{height:240svh}.trivia[data-pinned=true]{height:240svh}.chaos[data-pinned=true]{height:280svh}
+ .heel[data-pinned=true]{height:200svh}.trivia[data-pinned=true]{height:200svh}.chaos[data-pinned=true]{height:220svh}
 }
 @media(max-width:850px){.answerLabel{font-size:3.3cqw;gap:1.2cqw;padding-inline:2.2cqw}.answerLabel b{font-size:2.4cqw}.topicName{font-size:2.35cqw}}
 @media(max-width:400px){.genre{font-size:.6rem;margin-left:8px}.copy h2{font-size:2.6rem}.headline{font-size:.94rem}.bottom>p{max-width:24ch}.phaseLabels{max-width:15ch;text-align:right}.rail{display:none}}

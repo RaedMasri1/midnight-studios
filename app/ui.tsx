@@ -58,7 +58,8 @@ export function SiteEffects(){const pathname=usePathname();useEffect(()=>{
    }},{threshold:.12});reveals.filter(el=>!revealed.has(el)).forEach(el=>revealObserver!.observe(el));
   }schedule();
  }
- function resize(){reset();}
+ let measuredWidth=innerWidth,measuredHeight=innerHeight;
+ function resize(){const toolbarOnly=matchMedia('(pointer: coarse)').matches&&innerWidth===measuredWidth&&(innerHeight>=620)===(measuredHeight>=620);measuredWidth=innerWidth;measuredHeight=innerHeight;if(toolbarOnly)schedule();else reset();}
  function visibility(){if(document.hidden){cancelAnimationFrame(frame);frame=0;}else schedule();}
  function focus(event:FocusEvent){const target=event.target;if(!(target instanceof Element))return;
   // Focusing any control never leaves it between off-screen animation states.

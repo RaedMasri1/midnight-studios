@@ -60,14 +60,19 @@ export function closestFrame(target: number, available: Iterable<number>) {
   for (const frame of available) if (Math.abs(frame - target) < distance) { best = frame; distance = Math.abs(frame - target); }
   return best;
 }
-export function frameWindow(target: number, count: number, direction = 1) {
+export function frameWindow(target: number, count: number, direction = 1, lookahead = 5) {
   const offsets = direction < 0 ? [0, -1, -2, 1, -3, 2, -4, -5] : [0, 1, 2, -1, 3, -2, 4, 5];
+  for (let i = 6; i <= Math.min(16, lookahead); i++) offsets.push(i * direction);
   return offsets.map(i => target + i).filter(i => i >= 0 && i < count);
 }
 export class DecodedFrameCache<T extends { close?: () => void }> {
   private frames = new Map<number, T>();
   readonly limit: number;
-  constructor(limit = 12) { if (!Number.isInteger(limit) || limit < 1) throw new Error('Frame cache limit must be positive'); this.limit = limit; }
+  readonly protectedFrames: ReadonlySet<number>;
+  constructor(limit = 12, protectedFrames: ReadonlySet<number> = new Set()) {
+    if (!Number.isInteger(limit) || limit < 1 || protectedFrames.size >= limit) throw new Error('Frame cache needs room for a moving frame');
+    this.limit = limit; this.protectedFrames = protectedFrames;
+  }
   get size() { return this.frames.size; }
   has(index: number) { return this.frames.has(index); }
   get(index: number) { return this.frames.get(index); }
@@ -77,7 +82,7 @@ export class DecodedFrameCache<T extends { close?: () => void }> {
     this.frames.set(index, frame);
     while (this.frames.size > this.limit) {
       let farthest = index, distance = -1;
-      for (const candidate of this.frames.keys()) if (candidate !== target && Math.abs(candidate - target) > distance) { farthest = candidate; distance = Math.abs(candidate - target); }
+      for (const candidate of this.frames.keys()) if (candidate !== target && !this.protectedFrames.has(candidate) && Math.abs(candidate - target) > distance) { farthest = candidate; distance = Math.abs(candidate - target); }
       this.frames.get(farthest)?.close?.(); this.frames.delete(farthest);
     }
   }
