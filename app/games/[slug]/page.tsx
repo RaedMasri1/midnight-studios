@@ -5,6 +5,7 @@ import {getPublishedGames,getGame} from '@/lib/content';
 import {getGameReviews} from '@/lib/reviews';
 import {pageMetadata,BreadcrumbData,StructuredData,absoluteUrl,organizationId} from '../../seo';
 import {Menu,SiteEffects} from '../../ui';
+import {FooterSupport} from '../../footer-support';
 import {GameGallery,GameSections,GameReviews} from './game-client';
 import styles from './game-page.module.css';
 export const dynamicParams=false;
@@ -30,5 +31,5 @@ export default async function Game({params}:{params:Promise<{slug:string}>}){
  <GameSections hasScreenshots={page.screenshots.length>0} reviewsEnabled={showReviews} reviewCount={reviews.length} galleryLabel={conceptGallery?'Artwork':'Screenshots'}/>
  <section className={styles.gallerySection} id="game-screenshots" aria-labelledby="gallery-title"><h2 id="gallery-title" className={styles.sectionTitle}>{page.galleryTitle}</h2><p className={styles.sectionIntro}>{page.galleryIntro}</p>{page.screenshots.length?<GameGallery screenshots={page.screenshots}/>:<p className={styles.emptyGallery}>{page.galleryEmptyText}</p>}</section>
  <section className={styles.overview} id="game-overview" aria-labelledby="overview-title"><div className={styles.overviewTop}><h2 id="overview-title">{page.overviewTitle}</h2><div className={styles.overviewCopy}>{page.overviewParagraphs.map((text,i)=><p key={i}>{text}</p>)}</div></div><div className={styles.highlights}>{page.highlights.map((highlight,i)=>{const Icon=icons[highlight.icon??'characters'];return <div className={styles.highlight} key={i}><Icon aria-hidden="true"/><div><h3>{highlight.title}</h3><p>{highlight.text}</p></div></div>})}</div></section>
- {showReviews?<GameReviews records={reviews} page={page}/>:null}</main><footer className={styles.footer}><div className={styles.footerLeft}><Link prefetch={false} href="/" className={styles.brand} aria-label="Midnight Studios homepage"><Wordmark/></Link><span className={styles.footerCopy}>{page.footerText}</span></div><span>© {new Date().getFullYear()} Midnight Studios</span></footer></div></div>;
+ {showReviews?<GameReviews records={reviews} page={page}/>:null}</main><footer className={styles.footer}><FooterSupport className={styles.footerSupport}/><div className={styles.footerLeft}><Link prefetch={false} href="/" className={styles.brand} aria-label="Midnight Studios homepage"><Wordmark/></Link><span className={styles.footerCopy}>{page.footerText}</span></div><span>© {new Date().getFullYear()} Midnight Studios</span></footer></div></div>;
 }
