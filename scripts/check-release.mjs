@@ -27,9 +27,17 @@ assert.equal(meta('description'),'Midnight Studios is an independent game develo
 assert(!/<img\b[^>]*src="[^"]*midnight-studios-social/.test(home),'Sharing image is metadata only');
 for(const route of ['index','games','about','devlog','contact',...gameRecords.map(g=>'games/'+g.slug)]){
  const html=fs.readFileSync('out/'+route+'.html','utf8');
- for(const name of ['favicon-96.png','favicon-192.png','favicon.ico','apple-touch-icon.png']){
-  assert(html.includes('href="/'+name+'?v=050"'));assert(fs.existsSync('out/'+name));
+ for(const name of ['favicon-96.png','favicon-192.png','favicon.ico','favicon-dark-96.png','favicon-dark-192.png','favicon-dark.ico','apple-touch-icon.png']){
+  const version=name==='apple-touch-icon.png'?'050':'20261023';
+  assert(html.includes('href="/'+name+'?v='+version+'"'));assert(fs.existsSync('out/'+name));
   if(name.endsWith('.png'))assert.equal(fs.readFileSync('out/'+name)[25],6,'Favicon PNG retains RGBA transparency');
+ }
+ const icons=[...html.matchAll(/<link\b([^>]*?)>/g)].map(m=>attrs(m[1])).filter(t=>t.rel==='icon');
+ for(const name of ['favicon-96.png','favicon-192.png','favicon.ico']){
+  assert(icons.some(t=>t.href==='/'+name+'?v=20261023'&&!t.media),'Black favicon remains the default');
+ }
+ for(const name of ['favicon-dark-96.png','favicon-dark-192.png','favicon-dark.ico']){
+  assert(icons.some(t=>t.href==='/'+name+'?v=20261023'&&t.media==='(prefers-color-scheme: dark)'),'White favicon is limited to dark browser themes');
  }
  assert(!html.includes('href="/favicon.svg"'));
 }
